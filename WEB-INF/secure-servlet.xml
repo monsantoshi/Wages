@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="validatorFactory" class="org.springframework.validation.commons.ValidatorFactory" 
+    	init-method="init">
+    	<property name="resources">
+      		<list>
+        	<value>WEB-INF/validator-rules.xml</value>
+        	<value>WEB-INF/validation.xml</value>
+      		</list>
+    	</property>
+	</bean>
+
+	<bean id="beanValidator" class="org.springframework.validation.commons.BeanValidator">
+    	<property name="validatorFactory"><ref local="validatorFactory"/></property>
+	</bean>
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.tiles.TilesJstlView</value>
+		</property>
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename"><value>resources.messages</value></property>                                                                           
+	</bean>
+	
+	<bean id="resultMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename"><value>resources.resultMessages</value></property>                                                                           
+	</bean>
+
+	<bean id="viewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName"><value>siteLanguage</value></property>
+	</bean>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+    	<property name="defaultLocale"><value>th_TH</value></property>
+  	</bean>
+  
+	<!--bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/-->
+
+	<bean id="paramResolver" 
+		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName"><value>reqCode</value></property>
+	</bean>
+		
+<!--	<bean id="recordUtil" class="com.pnp.standard.RecordUtil" /> -->
+	
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/defs/definitions.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref local="localeChangeInterceptor"/>
+			</list>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="/validation.js">staticJavascriptController</prop>
+				<prop key="security.htm">securityController</prop>
+				<prop key="evaluationReport.htm">ctpnrp002Controller</prop>
+				<prop key="wgEvaluationReport.htm">ctperp101Controller</prop>				
+				<prop key="timeAttendanceReport.htm">ctpnrp001Controller</prop>
+				<prop key="timeAttendanceReportAdd.htm">ctpnrp001_2Controller</prop>
+				<prop key="payrollChangeOfMonthReport.htm">ctrwrp001Controller</prop>
+				<prop key="payrollMoveChangeOfMonthReport.htm">ctrwrp202Controller</prop>
+				<prop key="overTimeReport.htm">ctrwrp002Controller</prop>
+				<prop key="ctrwrp201Report.htm">ctrwrp201Controller</prop>
+				<prop key="evaluationAuditReport.htm">ctpnrp002_2Controller</prop>
+				<prop key="wgEvaluationAuditReport.htm">ctperp101_2Controller</prop>
+				<prop key="payrollPremiumReport.htm">ctrwrp003Controller</prop>
+				<prop key="healthRpt.htm">ctrwrp004Controller</prop>				
+				<prop key="payrollDangerReport.htm">ctrwrp005Controller</prop>
+				<prop key="payrollIncDecOthReport.htm">ctrwrp006Controller</prop>
+				<prop key="modSalRpt.htm">ctrwrp008Controller</prop>
+				<prop key="payrollVinaiReport.htm">ctrwrp010Controller</prop>
+				<prop key="payrollDecOthReport.htm">ctrwrp016Controller</prop>
+				<prop key="payrollDecOthOutAmtReport.htm">ctrwrp017Controller</prop>
+				<prop key="timeAttendanceWgSumReport.htm">cttarp101Controller</prop>
+				<prop key="timeAttendanceWgListReport.htm">cttamt101Controller</prop>
+				<prop key="pnEmpMoveReport.htm">cttrainrp01Controller</prop>
+				<prop key="pnEmpImpReport.htm">ctpprp001Controller</prop>
+				<prop key="pnEmpImpEngNameNewReport.htm">ctppprp001Controller</prop>
+				<prop key="pnEmpImpEngNameOldReport.htm">ctppprp002Controller</prop>
+				<prop key="prEmpBankReport.htm">ctprbk001Controller</prop>
+				<prop key="prEmpKTB01Report.htm">ctprktb001Controller</prop>
+				<prop key="prEmployeeMonthTaxReport.htm">ctprrptaxController</prop>
+				<prop key="pnEmpPromoteReport.htm">ctttrp001Controller</prop>
+				<prop key="pnEmpPromoteLevelReport.htm">ctttrp002Controller</prop>
+                <prop key="wePnEmployeeTextReport.htm">ctrwpnt001Controller</prop>
+                <prop key="weWgEmployeeTextReport.htm">ctrwwgt001Controller</prop>
+			    <prop key="srPvfReport107.htm">ctsrrp107Controller</prop>
+                <prop key="srPvfReport207.htm">ctsrrp207Controller</prop>
+                <prop key="srPvfReport029.htm">ctsrrp029Controller</prop>
+                <prop key="srPvfReport019.htm">ctsrrp019Controller</prop>
+                <prop key="srPvfReport034.htm">ctsrrp034Controller</prop>
+                <prop key="srPvfReport001.htm">ctsrrp001Controller</prop>
+                <prop key="wpayPr001Rpt.htm">ctwpayrp001Controller</prop>
+                <prop key="wpayPr003Rpt.htm">ctwpayrp003Controller</prop>
+                <prop key="wpayPr004Rpt.htm">ctwpayrp004Controller</prop>
+                <prop key="wpayPr0041Rpt.htm">ctwpayrp004_1Controller</prop>
+                <prop key="wpayPr005Rpt.htm">ctwpayrp005Controller</prop>
+                <prop key="wpayPr006Rpt.htm">ctwpayrp006Controller</prop>
+                <prop key="wpayPr008Rpt.htm">ctwpayrp008Controller</prop>
+                <prop key="wpayPr009Rpt.htm">ctwpayrp009Controller</prop>
+                <prop key="wpayPr010Rpt.htm">ctwpayrp010Controller</prop>
+                <prop key="wpayPr011Rpt.htm">ctwpayrp011Controller</prop>
+                <prop key="wpayPr014Rpt.htm">ctwpayrp014Controller</prop>
+                <prop key="wpayPr201Rpt.htm">ctwpayrp201Controller</prop>
+                <prop key="wpayApPr003Rpt.htm">ctwpayaprp003Controller</prop>	
+                <prop key="wpayApPr005Rpt.htm">ctwpayaprp005Controller</prop>
+                <prop key="wpayApPr006Rpt.htm">ctwpayaprp006Controller</prop>
+                <prop key="wpayApPr008Rpt.htm">ctwpayaprp008Controller</prop>
+                <prop key="wpayApPr010Rpt.htm">ctwpayaprp010Controller</prop>
+                <prop key="wpayApPr011Rpt.htm">ctwpayaprp011Controller</prop>
+                <prop key="wpayApPr201Rpt.htm">ctwpayaprp201Controller</prop>
+                <prop key="wpKtbReport.htm">ctwpayrpktb001Controller</prop>	
+                <prop key="wpayAftProcess01Report.htm">ctwpayaprp001Controller</prop>	
+                <prop key="wpayAftProcess02Report.htm">ctwpayaprp002Controller</prop>
+                <prop key="wpayAftProcess13Report.htm">ctwpayaprp013Controller</prop>
+                <prop key="wpayAftProcess14Report.htm">ctwpayaprp014Controller</prop>
+				<prop key="wpayAftProcess14KReport.htm">ctwpayaprp014KController</prop>
+                <prop key="wpayAftProcess14SReport.htm">ctwpayaprp014SController</prop>
+                <prop key="wpayAftProcess15Report.htm">ctwpayaprp015Controller</prop>
+                <prop key="wpayAftProcess16Report.htm">ctwpayaprp016Controller</prop>
+                <prop key="wpayAftProcess17Report.htm">ctwpayaprp017Controller</prop>
+                <prop key="wpayTransferCheckReport.htm">ctwpayglrp001Controller</prop>		
+                <prop key="wpayPrBreakPayReport.htm">ctwpaybrkrp001Controller</prop>
+                <prop key="wpayPrBreakPayScbReport.htm">ctwpaybrsrp001Controller</prop>
+                <prop key="prAftProcess13Report.htm">ctprrp013Controller</prop>	
+                <prop key="apTransferCheckReport.htm">ctwpayglrp001Controller</prop>	
+             	
+				
+                   
+			</props>
+		</property>
+	</bean>
+
+    <bean id="staticJavascriptController" 
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName"><value>validatorScript</value></property>
+    </bean>
+	
+	<bean id="securityController" class="com.ss.tp.security.SecurityController">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	
+	<bean id="ctpnrp002Controller" class="com.ss.tp.control.CTPNRP002Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	
+	<bean id="ctpnrp001Controller" class="com.ss.tp.control.CTPNRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctpnrp001_2Controller" class="com.ss.tp.control.CTPNRP001_2Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	
+	<bean id="ctperp101Controller" class="com.ss.tp.control.CTPERP101Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>		
+	
+	<bean id="ctrwrp001Controller" class="com.ss.tp.control.CTRWRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctrwrp202Controller" class="com.ss.tp.control.CTRWRP202Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	<bean id="ctrwrp002Controller" class="com.ss.tp.control.CTRWRP002Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctrwrp201Controller" class="com.ss.tp.control.CTRWRP201Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctpnrp002_2Controller" class="com.ss.tp.control.CTPNRP002_2Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	<bean id="ctperp101_2Controller" class="com.ss.tp.control.CTPERP101_2Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctrwrp003Controller" class="com.ss.tp.control.CTRWRP003Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctrwrp004Controller" class="com.ss.tp.control.CTRWRP004Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	<bean id="ctrwrp005Controller" class="com.ss.tp.control.CTRWRP005Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctrwrp006Controller" class="com.ss.tp.control.CTRWRP006Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctrwrp008Controller" class="com.ss.tp.control.CTRWRP008Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>		
+	<bean id="ctrwrp010Controller" class="com.ss.tp.control.CTRWRP010Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>		
+	<bean id="ctrwrp016Controller" class="com.ss.tp.control.CTRWRP016Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctrwrp017Controller" class="com.ss.tp.control.CTRWRP017Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	
+	<bean id="cttarp101Controller" class="com.ss.tp.control.CTTARP101Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="cttamt101Controller" class="com.ss.tp.control.CTTAMT101Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="cttrainrp01Controller" class="com.ss.tp.control.CTTRAINRP01Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctpprp001Controller" class="com.ss.tp.control.CTPPRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+		<bean id="ctppprp001Controller" class="com.ss.tp.control.CTPPPRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+		<bean id="ctppprp002Controller" class="com.ss.tp.control.CTPPPRP002Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	
+	<bean id="ctprbk001Controller" class="com.ss.tp.control.CTPRBK001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctprktb001Controller" class="com.ss.tp.control.CTPRKTB001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctprrptaxController" class="com.ss.tp.control.CTPRRPTAXController">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctttrp001Controller" class="com.ss.tp.control.CTTTRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctttrp002Controller" class="com.ss.tp.control.CTTTRP002Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+        <bean id="ctrwpnt001Controller" class="com.ss.tp.control.CTRWPNT001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	 <bean id="ctrwwgt001Controller" class="com.ss.tp.control.CTRWWGT001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+
+	<bean id="ctsrrp107Controller" class="com.ss.tp.control.CTSRRP107Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctsrrp207Controller" class="com.ss.tp.control.CTSRRP207Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctsrrp029Controller" class="com.ss.tp.control.CTSRRP029Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctsrrp019Controller" class="com.ss.tp.control.CTSRRP019Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctsrrp034Controller" class="com.ss.tp.control.CTSRRP034Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctsrrp001Controller" class="com.ss.tp.control.CTSRRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<!-- FEE WPAY PR EMPLOYEE -->
+	
+	<bean id="ctwpayrp001Controller" class="com.ss.tp.control.CTWPAYRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayrp201Controller" class="com.ss.tp.control.CTWPAYRP201Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayrp003Controller" class="com.ss.tp.control.CTWPAYRP003Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayrp004Controller" class="com.ss.tp.control.CTWPAYRP004Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	<bean id="ctwpayrp004_1Controller" class="com.ss.tp.control.CTWPAYRP004_1Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	<bean id="ctwpayrp005Controller" class="com.ss.tp.control.CTWPAYRP005Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayrp006Controller" class="com.ss.tp.control.CTWPAYRP006Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayrp008Controller" class="com.ss.tp.control.CTWPAYRP008Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+		<bean id="ctwpayrp009Controller" class="com.ss.tp.control.CTWPAYRP009Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>		
+	<bean id="ctwpayrp010Controller" class="com.ss.tp.control.CTWPAYRP010Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayrp011Controller" class="com.ss.tp.control.CTWPAYRP011Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayrp014Controller" class="com.ss.tp.control.CTWPAYRP014Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<!-- FEE WG PR EMPLOYEE -->
+	
+	
+	<bean id="ctwpayaprp003Controller" class="com.ss.tp.control.CTWPAYAPRP003Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp005Controller" class="com.ss.tp.control.CTWPAYAPRP005Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp006Controller" class="com.ss.tp.control.CTWPAYAPRP006Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp008Controller" class="com.ss.tp.control.CTWPAYAPRP008Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp010Controller" class="com.ss.tp.control.CTWPAYAPRP010Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp011Controller" class="com.ss.tp.control.CTWPAYAPRP011Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp015Controller" class="com.ss.tp.control.CTWPAYAPRP015Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	<bean id="ctwpayaprp201Controller" class="com.ss.tp.control.CTWPAYAPRP201Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+
+	<bean id="ctwpayrpktb001Controller" class="com.ss.tp.control.CTWPAYRPKTB001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+<bean id="ctwpayaprp001Controller" class="com.ss.tp.control.CTWPAYAPRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp002Controller" class="com.ss.tp.control.CTWPAYAPRP002Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp013Controller" class="com.ss.tp.control.CTWPAYAPRP013Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp014Controller" class="com.ss.tp.control.CTWPAYAPRP014Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+		<bean id="ctwpayaprp014KController" class="com.ss.tp.control.CTWPAYAPRP014KController">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+		<bean id="ctwpayaprp014SController" class="com.ss.tp.control.CTWPAYAPRP014SController">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	<bean id="ctwpayaprp016Controller" class="com.ss.tp.control.CTWPAYAPRP016Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayaprp017Controller" class="com.ss.tp.control.CTWPAYAPRP017Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpayglrp001Controller" class="com.ss.tp.control.CTWPAYGLRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpaybrkrp001Controller" class="com.ss.tp.control.CTWPAYBRKRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>	
+	<bean id="ctwpaybrsrp001Controller" class="com.ss.tp.control.CTWPAYBRSRP001Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>		
+		
+	
+	<bean id="ctprrp013Controller" class="com.ss.tp.control.CTPRRP013Controller">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+	</bean>
+	
+	<!-- secure.htm 
+	<bean id="securityDAO" class="com.pnp.security.control.SecurityDAO">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="securityController"	class="com.pnp.security.control.SecurityController">
+		<property name="methodNameResolver"><ref bean="paramResolver" /></property>
+		<property name="securityDAO">
+			<ref bean="securityDAO" />
+		</property>
+	</bean>
+		-->								
+</beans>

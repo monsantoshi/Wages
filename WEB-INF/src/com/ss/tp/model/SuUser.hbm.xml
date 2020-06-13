@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="SuUser" table="SU_USER">
+    <id name="userId"
+        type="string"
+        column="USER_ID"
+        length="15" >
+        <generator class="assigned" />
+    </id>
+        <property 
+            name="userPassword" 
+            column="USER_PASSWORD" 
+            type="string"
+            length="30"
+        />
+        <property 
+            name="userName" 
+            column="USER_NAME" 
+            type="string"
+            length="30"
+        />
+        <property 
+            name="department" 
+            column="DEPARTMENT" 
+            type="string"
+            length="30"
+        />
+        <property 
+            name="inactive" 
+            column="INACTIVE" 
+            type="string"
+            length="1"
+        />
+        <property 
+            name="userGroup" 
+            column="USER_GROUP" 
+            type="string"
+            length="15"
+        />
+        <property 
+            name="userLin" 
+            column="USER_LIN" 
+            type="string"
+            length="2"
+        />
+        <property 
+            name="updBy" 
+            column="UPD_BY" 
+            type="string"
+            length="15"
+        />
+        <property 
+            name="updDate" 
+            column="UPD_DATE" 
+            type="timestamp"
+            length="7"
+        />
+        <property 
+            name="webFlag" 
+            column="WEB_FLAG" 
+            type="string"
+            length="1"
+        />
+         <property 
+            name="masterUser" 
+            column="MASTER_USER" 
+            type="string"
+            length="15"
+        />
+         <property 
+            name="telNo" 
+            column="TEL_NO" 
+            type="double"          
+        />
+         <property 
+            name="zipCode" 
+            column="ZIP_CODE" 
+            type="string"
+            length="5"          
+        />
+         
+
+</class>
+</hibernate-mapping>

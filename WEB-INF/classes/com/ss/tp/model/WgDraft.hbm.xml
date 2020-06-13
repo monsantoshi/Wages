@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+<class name="WgDraft" table="WG_DRAFT">
+	
+    <composite-id name="pk" class="WgDraftPk">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="year" column="YEAR" type="integer" />
+        <key-property name="empCode" type="string" column="EMP_CODE" length="10" />  
+    </composite-id>
+    
+    <property name="codeSeq" type="long" column="CODE_SEQ" />
+    <property name="hisSeq" type="long"  column="HIS_SEQ" />
+    <property name="preName" type="string" column="PRE_NAME" length="50" /> 
+    <property name="firstName" type="string" column="FIRST_NAME" length="100" /> 
+    <property name="lastName" type="string" column="LAST_NAME" length="100" /> 
+    <property name="gworkCode" type="string" column="GWORK_CODE" length="10" /> 
+    <property name="dutyCode" type="string" column="DUTY_CODE" length="10" /> 
+    <property name="wage" type="double" column="WAGE" />
+    <property name="wageDraft" type="double" column="WAGE_DRAFT" />
+    <property name="score" type="double" column="SCORE" />
+    <property name="perDraft" type="double" column="PER_DRAFT" />
+    <property name="remark" type="string" column="REMARK" length="500" /> 
+    <property name="draftStatus" type="string" column="DRAFT_STATUS" length="1" /> 
+    <property name="punishStatus" type="string" column="PUNISH_STATUS" length="1" /> 
+    <property name="noDraft" type="string" column="NO_DRAFT" length="20" /> 
+    <property name="idate" type="timestamp" column="IDATE" />   
+	<property name="instructNo" type="string" column="INSTRUCT_NO" length="20" /> 
+	<property name="updateFlag" type="string" column="UPDATE_FLAG" length="1" /> 
+	<property name="confirmFlag" type="string" column="CONFIRM_FLAG" length="1" /> 
+    <property name="statusDate" type="timestamp" column="STATUS_DATE" />   	
+    <property name="lastPerDraft1" type="double" column="LAST_PER_DRAFT1" />
+    <property name="lastPerDraft2" type="double" column="LAST_PER_DRAFT2" />
+    <property name="lastPerDraft3" type="double" column="LAST_PER_DRAFT3" />
+    <property name="lastPerDraft4" type="double" column="LAST_PER_DRAFT4" />
+    <property name="lastPerDraft5" type="double" column="LAST_PER_DRAFT5" />
+    <property name="illDay" type="double" column="ILL_DAY" />
+    <property name="busDay" type="double" column="BUS_DAY" />
+    <property name="illDocDay" type="double" column="ILLDOC_DAY" />
+    <property name="lateDay" type="double" column="LATE_DAY" />
+    <property name="bornDay" type="double" column="BORN_DAY" />
+    <property name="bornBusDay" type="double" column="BORNBUS_DAY" />
+    <property name="budthDay" type="double" column="BUDTH_DAY" />
+    <property name="absenceDay" type="double" column="ABSENCE_DAY" />
+    <property name="creBy" type="string" column="CRE_BY" length="15" /> 
+    <property name="creDate" type="timestamp" column="CRE_DATE" /> 
+    <property name="updBy" type="string" column="UPD_BY" length="15" />  
+    <property name="updDate" type="timestamp" column="UPD_DATE" />	
+         
+	<many-to-one name="refPnOrganization" class="PnOrganization" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="CODE_SEQ" />
+    </many-to-one>
+    
+	<many-to-one name="refDbPreSuff" class="DbPreSuff" update="false" insert="false"  lazy="false">
+                    <column name="PRE_NAME" />
+    </many-to-one>
+    
+</class>
+</hibernate-mapping>

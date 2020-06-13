@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PnEmpSetPlace" table="PN_EMP_SET_PLACE">
+	 <composite-id name="pk" class="PnEmpSetPlacePK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="empCode" column="EMP_CODE" type="string" length="10"/>
+	            <key-property name="moveStatus" column="MOVE_STATUS" type="string" length="50"/>
+	            <key-property name="year" type="string" column="YEAR" length="9" />
+	 </composite-id>
+	<property name="moveNo" type="long" column="MOVE_NO" length="10" />
+   	<property name="moveSeq" type="string" column="MOVE_SEQ" length="1" />
+	<property name="dateSubmit" type="timestamp" column="DATE_SUBMIT" />
+	<property name="orgCode" type="string" column="ORG_CODE" length="14" />
+	<property name="reason" type="string" column="REASON" length="3" />
+	<property name="moveOk" type="string" column="MOVE_OK" length="10" />
+        
+        <many-to-one name="refPnEmpMove" class="PnEmpMove" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="MOVE_NO" />
+        </many-to-one>
+	<set name="pnOrganizationDtl" lazy="true" inverse="true" cascade="all" order-by="ORG_CODE">
+		<key>
+			<column name="OU_CODE" not-null="true"/>
+			<column name="ORG_CODE" not-null="true"/>	
+                </key>		
+		<one-to-many class="PnOrganization" />
+	</set>
+		
+	
+	</class>
+</hibernate-mapping>

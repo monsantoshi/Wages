@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+
+<class  name="WgPrWorkDay" table="WG_PR_WORK_DAY">
+  <composite-id name="wgPrWorkDayPK" class="WgPrWorkDayPK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="year" column="YEAR" type="integer"  />
+        <key-property name="period" column="PERIOD" type="integer"  />
+        <key-property name="empCode" column="EMP_CODE" type="string" length="10" />
+  </composite-id>    
+  <property name="codeSeqWork" column="CODE_SEQ_WORK" type="integer"  />
+  <property name="workDay" type="double" column="WORK_DAY" />
+  <property name="workAmt" type="double" column="WORK_AMT" />
+  <property name="wageAmt" type="double" column="WAGE_AMT" />
+  <property name="confirmFlag" type="string" column="CONFIRM_FLAG" length="1"/>
+  
+  <property name="creBy" type="string" column="CRE_BY" length="15" />
+  <property name="creDate" type="timestamp" column="CRE_DATE" />
+  <property name="updBy" type="string" column="UPD_BY" length="15" />
+  <property name="updDate" type="timestamp" column="UPD_DATE" />
+</class>
+</hibernate-mapping>

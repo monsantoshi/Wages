@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VFeeWpayTaxYear" table="V_FEE_WPAY_TAX_YEAR">
+
+     <id name="keySeq"
+        type="integer"
+        column="KEY_SEQ"
+        length="8" >
+    	<generator class="assigned" />
+    </id>
+	<property name="ouCode" type="string" column="OU_CODE" length="3" />
+	<property name="orgCode" type="string" column="ORG_CODE" length="50" />
+	<property name="orgDesc" type="string" column="ORG_DESC" length="100" />
+	<property name="divCode" type="string" column="DIV_CODE"  length="100" />
+	<property name="divSeq" type="long" column="DIV_SEQ" length="22" />
+	<property name="divDesc" type="string" column="DIV_DESC" length="100" />
+	<property name="divShort" type="string" column="DIV_SHORT" length="10" />
+	<property name="areaCode" type="string" column="AREA_CODE" length="20" />
+    <property name="areaSeq" type="long" column="AREA_SEQ" length="22" />
+   	<property name="areaDesc" type="string" column="AREA_DESC" length="200" />
+   	<property name="secCode" type="string" column="SEC_CODE" length="50" />
+   	<property name="secSeq" type="long" column="SEC_SEQ" length="22" />
+	<property name="secDesc" type="string" column="SEC_DESC" length="100" />
+	<property name="workCode" type="string" column="WORK_CODE" length="20" />
+	<property name="workSeq" type="long" column="WORK_SEQ" length="22" />
+    <property name="workDesc" type="string" column="WORK_DESC" length="200" />
+    <property name="year" type="double" column="YEAR" length="4" />
+	<property name="empCode" type="string" column="EMP_CODE" length="10"/>
+	<property name="fullName" type="string" column="FULL_NAME" length="200" />
+	<property name="codeSeq" type="long" column="CODE_SEQ" />
+	<property name="taxId" type="string" column="TAX_ID" length="17" />
+	<property name="empPeriod" type="string" column="EMP_PERIOD" length="13" />
+	<property name="incomeAmt" type="double" column="INCOME_AMT"/>
+	<property name="taxAmt" type="double" column="TAX_AMT"/>
+	<property name="divShortD" type="string" column="DIV_SHORTD length="100" />
+	<property name="difSeq" type="long" column="DIF_SEQ" length="1" />
+	<property name="empStatus" type="string" column="EMP_STATUS" length="1" />
+	
+	
+</class>
+</hibernate-mapping>

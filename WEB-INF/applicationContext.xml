@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- Tomcat 5.0.x configuration for jndi lookup datasource. If use with 
+		OC4J please remove "java:comp/env/". -->
+
+	<bean id="myDataSource" class="org.springframework.jndi.JndiObjectFactoryBean"
+		abstract="false" singleton="true" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="jndiName">
+			<value>jdbc/thaipostDS</value>
+		</property>
+	</bean>
+	<!-- Simple Datasource configuration 
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close"> <property name="driverClassName"> <value>oracle.jdbc.driver.OracleDriver</value> 
+		</property> <property name="url"> <value>jdbc:oracle:thin:@localhost:1521:post</value> 
+		</property> <property name="username"> <value>HRPOST</value> </property> 
+		<property name="password"> <value>HRPOST</value> </property> </bean>-->
+
+
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="mappingResources">
+			<list>
+				<value>com/ss/tp/model/PnAdmin.hbm.xml</value>
+				<value>com/ss/tp/model/PnEmployee.hbm.xml</value>
+				<value>com/ss/tp/model/PnOrganization.hbm.xml</value>
+				<value>com/ss/tp/model/DbPreSuff.hbm.xml</value>
+				<value>com/ss/tp/model/SuOrganize.hbm.xml</value>
+				<value>com/ss/tp/model/SuUser.hbm.xml</value>
+				<value>com/ss/tp/model/SuUserMenu.hbm.xml</value>
+				<value>com/ss/tp/model/SuMenu.hbm.xml</value>
+				<value>com/ss/tp/model/SuUserOrganization.hbm.xml</value>
+				<value>com/ss/tp/model/SuUserOrg.hbm.xml</value>
+				<value>com/ss/tp/model/PnPosition.hbm.xml</value>
+				<value>com/ss/tp/model/VPnOrganizationSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/VPnEmployeeSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/VPnEmployeeSecurityWork.hbm.xml</value>
+				<value>com/ss/tp/model/VPrEmployeeSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/VPrEmployeeSecurityReport.hbm.xml</value>
+				<!-- =========================================Personal Evaluation========================================== -->
+				<value>com/ss/tp/model/PeEmployeeScore.hbm.xml</value>
+				<value>com/ss/tp/model/PeEmployeeScoreDetail.hbm.xml</value>
+				<value>com/ss/tp/model/PeEvaluationTitle.hbm.xml</value>
+				<value>com/ss/tp/model/PeEvaluationFormTitle.hbm.xml</value>
+				<value>com/ss/tp/model/VPeEmployeeScore.hbm.xml</value>
+				<value>com/ss/tp/model/VPeWgEmployeeScore.hbm.xml</value>
+				<value>com/ss/tp/model/PeControl.hbm.xml</value>
+				<value>com/ss/tp/model/PeWgControl.hbm.xml</value>
+				<value>com/ss/tp/model/PeWgEmpScore.hbm.xml</value>
+				<value>com/ss/tp/model/PeWgEmpScoreDetail.hbm.xml</value>
+				<value>com/ss/tp/model/VWgEmployeeSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/VWpEmployeeActSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/PnEmpDataStatus.hbm.xml</value>
+				<value>com/ss/tp/model/WgEmpDataStatus.hbm.xml</value>
+				<!-- =========================================Time Attendance========================================== -->
+				<value>com/ss/tp/model/TaMonthEmpWork.hbm.xml</value>
+				<value>com/ss/tp/model/TaWgStatusWork.hbm.xml</value>
+				<value>com/ss/tp/model/TaStatusWork.hbm.xml</value>
+				<value>com/ss/tp/model/TaControl.hbm.xml</value>
+				<value>com/ss/tp/model/VTaMonthEmpWork.hbm.xml</value>
+				<value>com/ss/tp/model/TaWgMonthEmpWork.hbm.xml</value>
+				<value>com/ss/tp/model/VTaWgMonthEmpWork.hbm.xml</value>
+				<value>com/ss/tp/model/TaWgControl.hbm.xml</value>
+				<!-- =========================================Payroll Web========================================== -->
+				<value>com/ss/tp/model/PrIncomeDeduct.hbm.xml</value>
+				<value>com/ss/tp/model/RwDanger.hbm.xml</value>
+				<value>com/ss/tp/model/RwHealth.hbm.xml</value>
+				<value>com/ss/tp/model/RwIncDecOther.hbm.xml</value>
+				<value>com/ss/tp/model/RwModSal.hbm.xml</value>
+				<value>com/ss/tp/model/RwOvertime.hbm.xml</value>
+				<value>com/ss/tp/model/RwPremium.hbm.xml</value>
+				<value>com/ss/tp/model/RwPremiumReport.hbm.xml</value>
+				<value>com/ss/tp/model/RwVinai.hbm.xml</value>
+				<value>com/ss/tp/model/RwVinai2.hbm.xml</value>
+				<value>com/ss/tp/model/PrEmployee.hbm.xml</value>
+				<value>com/ss/tp/model/PrEmployeeText.hbm.xml</value>
+				<value>com/ss/tp/model/PrPeriodLine.hbm.xml</value>
+				<value>com/ss/tp/model/VRwVinai.hbm.xml</value>
+				<value>com/ss/tp/model/VPrEmpTextRep.hbm.xml</value>
+				<value>com/ss/tp/model/VPrEmpTextMoveRep.hbm.xml</value>
+				<value>com/ss/tp/model/WgPeriodLine.hbm.xml</value>
+				<value>com/ss/tp/model/WgPrWorkDay.hbm.xml</value>
+				<value>com/ss/tp/model/PnSalary.hbm.xml</value>
+				<value>com/ss/tp/model/RwConfirmData.hbm.xml</value>
+				<!-- =========================================WG Payroll Web========================================== -->
+				<value>com/ss/tp/model/WgPrEmployeeText.hbm.xml</value>
+				<value>com/ss/tp/model/WgPrEmployee.hbm.xml</value>
+				<value>com/ss/tp/model/VWgPrEmpTextRep.hbm.xml</value>
+				<value>com/ss/tp/model/WgEmployee.hbm.xml</value>
+				<value>com/ss/tp/model/WgIncomeDeduct.hbm.xml</value>
+				<value>com/ss/tp/model/WgPrIncDecOther.hbm.xml</value>
+				<value>com/ss/tp/model/VWgPrEmployeeSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/WgPrOvertime.hbm.xml</value>
+				<value>com/ss/tp/model/WgDraft.hbm.xml</value>
+				<value>com/ss/tp/model/WgDuty.hbm.xml</value>
+				<value>com/ss/tp/model/WgConfirmData.hbm.xml</value>
+				<value>com/ss/tp/model/TestEmp.hbm.xml</value>
+				<!-- =========================================W PN_PROMOTE_INST WEB========================================== -->
+				<value>com/ss/tp/model/WePnPromoteInst.hbm.xml</value>
+				<value>com/ss/tp/model/PnEmployeeText.hbm.xml</value>
+				<value>com/ss/tp/model/PnEmployeeTextDetail.hbm.xml</value>
+				<value>com/ss/tp/model/PnTextControl.hbm.xml</value>
+				<value>com/ss/tp/model/WePnEmployeeText.hbm.xml</value>
+				<value>com/ss/tp/model/WeWgEmployeeText.hbm.xml</value>
+				<!-- New added -->
+				<value>com/ss/tp/model/VPrDailyOutAmtRep.hbm.xml</value>
+				<!-- =========================================AP TO WEB========================================== -->
+				
+				<value>com/ss/tp/model/GlInterfaceErp.hbm.xml</value>
+				<!-- =========================================WAGES TO WEB========================================== -->
+				<value>com/ss/tp/model/FeeWpayPrEmployee.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayPrEmployeeText.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayPrPeriodLine.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpPrEmployeeSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpPrEmpSecReport.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwConfirmData.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayPrIncomeDeduct.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayPrWorkDay.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwHealth.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwIncDecOther.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwOvertime.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwPremium.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwPremiumReport.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwVinai.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwVinai2.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayRwVinai3.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayStatusWork.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayMonthEmpWork.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayUserSFlag.hbm.xml</value>
+				
+				<!-- =========================================fEE WG PAY TO WEB========================================== -->
+				<value>com/ss/tp/model/FeeWgEmployee.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWgPnEmployeeSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/VWgEmployeeActSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/FeeContract.hbm.xml</value>
+				<value>com/ss/tp/model/FeeContractDetails.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgPrEmployee.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgPrEmployeeText.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgPrPeriodLine.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWgPrEmployeeSecurity.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWgPrEmpSecReport.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwConfirmData.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWgPrEmpTextRep.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgPrIncomeDeduct.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgPrWorkDay.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwHealth.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwIncDecOther.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwOvertime.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwPremium.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwPremiumReport.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwVinai.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgRwVinai2.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgStatusWork.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgMonthEmpWork.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWgRwVinai.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayRwVinai.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayRwVinai2.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayRwVinai3.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWgDuty.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayPrEmpTextRep.hbm.xml</value>
+				<value>com/ss/tp/model/VEContractDate.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayPrDailyOutAmtRep.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayPrDailyAmtRep.hbm.xml</value>
+			    <value>com/ss/tp/model/VFeeWpayTaxYear.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayPrDailyNetAmt.hbm.xml</value>
+				<value>com/ss/tp/model/VPrDailyNetAmt.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpay401.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpay401KTB.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpay401SCB.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpay401U.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpay401UKTB.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpay401USCB.hbm.xml</value>
+				<value>com/ss/tp/model/VSuMasterUser.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayGlTransfer.hbm.xml</value>
+				<value>com/ss/tp/model/FeeWpayPrBreakPay.hbm.xml</value>
+				<value>com/ss/tp/model/VFeeWpayPrBreakPay.hbm.xml</value>
+				
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="baseTransactionProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		lazy-init="true" abstract="true">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="check*">PROPAGATION_REQUIRED</prop>
+				<prop key="edit*">PROPAGATION_REQUIRED</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="load*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="find*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="get*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="*">PROPAGATION_SUPPORTS</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- JDBC Template Defintion -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref local="myDataSource" />
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="suUserDAO" class="com.ss.tp.dao.impl.SuUserDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="suUserOrgDAO" class="com.ss.tp.dao.impl.SuUserOrgDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="suUserService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.SuUserServiceImpl">
+				<property name="suUserDAO">
+					<ref bean="suUserDAO" />
+				</property>
+				<property name="suUserOrgDAO">
+					<ref bean="suUserOrgDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="suMenuDAO" class="com.ss.tp.dao.impl.SuMenuDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="suMenuService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.SuMenuServiceImpl">
+				<property name="suMenuDAO">
+					<ref bean="suMenuDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="suUserOrganizationDAO" class="com.ss.tp.dao.impl.SuUserOrganizationDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="suUserOrganizationService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.SuUserOrganizationServiceImpl">
+				<property name="suUserOrganizationDaoImpl">
+					<ref bean="suUserOrganizationDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="suOrganizeDAO" class="com.ss.tp.dao.impl.SuOrganizeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="suOrganizeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.SuOrganizeServiceImpl">
+				<property name="suOrganizeDAO">
+					<ref bean="suOrganizeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- =========================================Personal Evaluation========================================== -->
+	<bean id="peEmployeeScoreDAO" class="com.ss.tp.dao.impl.PeEmployeeScoreDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="peEvaluationFormTitleDAO" class="com.ss.tp.dao.impl.PeEvaluationFormTitleDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="peEmployeeScoreService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeEmployeeScoreServiceImpl">
+				<property name="peEmployeeScoreDAO">
+					<ref bean="peEmployeeScoreDAO" />
+				</property>
+				<property name="peEmployeeScoreDetailDAO">
+					<ref bean="peEmployeeScoreDetailDAO" />
+				</property>
+				<property name="pnEmployeeDAO">
+					<ref bean="pnEmployeeDAO" />
+				</property>
+				<property name="peEvaluationFormTitleDAO">
+					<ref bean="peEvaluationFormTitleDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peWgEmpScoreDAO" class="com.ss.tp.dao.impl.PeWgEmpScoreDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="peWgEmpScoreService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeWgEmpScoreServiceImpl">
+				<property name="peWgEmpScoreDAO">
+					<ref bean="peWgEmpScoreDAO" />
+				</property>
+				<property name="peWgEmpScoreDetailDAO">
+					<ref bean="peWgEmpScoreDetailDAO" />
+				</property>
+				<property name="wgEmployeeDAO">
+					<ref bean="wgEmployeeDAO" />
+				</property>
+				<property name="peEvaluationFormTitleDAO">
+					<ref bean="peEvaluationFormTitleDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peEmployeeScoreDetailService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeEmployeeScoreDetailServiceImpl">
+				<property name="peEmployeeScoreDetailDAO">
+					<ref bean="peEmployeeScoreDetailDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peEmployeeScoreDetailDAO" class="com.ss.tp.dao.impl.PeEmployeeScoreDetailDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="peWgEmpScoreDetailService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeWgEmpScoreDetailServiceImpl">
+				<property name="peWgEmpScoreDetailDAO">
+					<ref bean="peWgEmpScoreDetailDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peWgEmpScoreDetailDAO" class="com.ss.tp.dao.impl.PeWgEmpScoreDetailDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="vpeEmployeeScoreDAO" class="com.ss.tp.dao.impl.VPeEmployeeScoreDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="vpeEmployeeScoreService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.VPeEmployeeScoreServiceImpl">
+				<property name="vpeEmployeeScoreDAO">
+					<ref bean="vpeEmployeeScoreDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="vpeEmpScoreReportDAO" class="com.ss.tp.dao.impl.VPeEmpScoreReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="vpeEmpScoreReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.VPeEmpScoreReportServiceImpl">
+				<property name="vpeEmpScoreReportDAO">
+					<ref bean="vpeEmpScoreReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="vpeWgEmployeeScoreDAO" class="com.ss.tp.dao.impl.VPeWgEmployeeScoreDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="vpeWgEmployeeScoreService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.VPeWgEmployeeScoreServiceImpl">
+				<property name="vpeWgEmployeeScoreDAO">
+					<ref bean="vpeWgEmployeeScoreDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peControlDAO" class="com.ss.tp.dao.impl.PeControlDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="peControlService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeControlServiceImpl">
+				<property name="peControlDAO">
+					<ref bean="peControlDAO" />
+				</property>
+				<property name="suUserOrganizationDAO">
+					<ref bean="suUserOrganizationDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peWgControlDAO" class="com.ss.tp.dao.impl.PeWgControlDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="peWgControlService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeWgControlServiceImpl">
+				<property name="peWgControlDAO">
+					<ref bean="peWgControlDAO" />
+				</property>
+				<property name="suUserOrganizationDAO">
+					<ref bean="suUserOrganizationDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peEmpScoreReportDAO" class="com.ss.tp.dao.impl.PeEmpScoreReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="peEmpScoreReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeEmpScoreReportServiceImpl">
+				<property name="peEmpScoreReportDAO">
+					<ref bean="peEmpScoreReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="peWgEmpScoreReportDAO" class="com.ss.tp.dao.impl.PeWgEmpScoreReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="peWgEmpScoreReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PeWgEmpScoreReportServiceImpl">
+				<property name="peWgEmpScoreReportDAO">
+					<ref bean="peWgEmpScoreReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnEmpDataStatusDAO" class="com.ss.tp.dao.impl.PnEmpDataStatusDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="pnEmpDataStatusService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnEmpDataStatusServiceImpl">
+				<property name="pnEmpDataStatusDAO">
+					<ref bean="pnEmpDataStatusDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wgEmpDataStatusDAO" class="com.ss.tp.dao.impl.WgEmpDataStatusDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="wgEmpDataStatusService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgEmpDataStatusServiceImpl">
+				<property name="wgEmpDataStatusDAO">
+					<ref bean="wgEmpDataStatusDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- =========================================Time Attendance========================================== -->
+	<bean id="taMonthEmpWorkDAO" class="com.ss.tp.dao.impl.TaMonthEmpWorkDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="taMonthEmpWorkService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.TaMonthEmpWorkServiceImpl">
+				<property name="taMonthEmpWorkDAO">
+					<ref bean="taMonthEmpWorkDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="taReportDAO" class="com.ss.tp.dao.impl.TaReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="taReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.TaReportServiceImpl">
+				<property name="taReportDAO">
+					<ref bean="taReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="taViewDAO" class="com.ss.tp.dao.impl.TaViewDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="taViewService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.TaViewServiceImpl">
+				<property name="taViewDAO">
+					<ref bean="taViewDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="taWgMonthEmpWorkDAO" class="com.ss.tp.dao.impl.TaWgMonthEmpWorkDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="taWgMonthEmpWorkService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.TaWgMonthEmpWorkServiceImpl">
+				<property name="taWgMonthEmpWorkDAO">
+					<ref bean="taWgMonthEmpWorkDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="taWgReportDAO" class="com.ss.tp.dao.impl.TaWgReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="taWgReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.TaWgReportServiceImpl">
+				<property name="taWgReportDAO">
+					<ref bean="taWgReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- =========================================Pn Employee========================================== -->
+	<bean id="pnEmployeeDAO" class="com.ss.tp.dao.impl.PnEmployeeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="pnEmployeeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnEmployeeServiceImpl">
+				<property name="pnEmployeeDAO">
+					<ref bean="pnEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- =========================================Payroll Web========================================== -->
+	<bean id="prIncomeDeductDAO" class="com.ss.tp.dao.impl.PrIncomeDeductDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="rwDangerDAO" class="com.ss.tp.dao.impl.RwDangerDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="rwHealthDAO" class="com.ss.tp.dao.impl.RwHealthDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="rwIncDecOtherDAO" class="com.ss.tp.dao.impl.RwIncDecOtherDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="rwModSalDAO" class="com.ss.tp.dao.impl.RwModSalDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="rwOvertimeDAO" class="com.ss.tp.dao.impl.RwOvertimeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="rwOvertimeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwOvertimeServiceImpl">
+				<property name="rwOvertimeDAO">
+					<ref bean="rwOvertimeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwPremiumDAO" class="com.ss.tp.dao.impl.RwPremiumDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="rwPremiumReportDAO" class="com.ss.tp.dao.impl.RwPremiumReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="rwVinaiDAO" class="com.ss.tp.dao.impl.RwVinaiDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="rwVinai2DAO" class="com.ss.tp.dao.impl.RwVinai2DAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="prEmployeeDAO" class="com.ss.tp.dao.impl.PrEmployeeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="prEmployeeTextDAO" class="com.ss.tp.dao.impl.PrEmployeeTextDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+		<property name="rwConfirmDataDAO">
+			<ref bean="rwConfirmDataDAO" />
+		</property>
+	</bean>
+	<bean id="rwConfirmDataDAO" class="com.ss.tp.dao.impl.RwConfirmDataDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="prEmployeeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PrEmployeeServiceImpl">
+				<property name="prEmployeeDAO">
+					<ref bean="prEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="prPeriodLineDAO" class="com.ss.tp.dao.impl.PrPeriodLineDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="prPeriodLineService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PrPeriodLineServiceImpl">
+				<property name="prEmployeeDAO">
+					<ref bean="prEmployeeDAO" />
+				</property>
+				<property name="prEmployeeTextDAO">
+					<ref bean="prEmployeeTextDAO" />
+				</property>
+				<property name="prPeriodLineDAO">
+					<ref bean="prPeriodLineDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwPremiumService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwPremiumServiceImpl">
+				<property name="rwPremiumDAO">
+					<ref bean="rwPremiumDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwPremiumReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwPremiumReportServiceImpl">
+				<property name="rwPremiumReportDAO">
+					<ref bean="rwPremiumReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwHealthService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwHealthServiceImpl">
+				<property name="rwHealthDAO">
+					<ref bean="rwHealthDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwDangerService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwDangerServiceImpl">
+				<property name="rwDangerDAO">
+					<ref bean="rwDangerDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwModSalService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwModSalServiceImpl">
+				<property name="rwModSalDAO">
+					<ref bean="rwModSalDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwVinaiService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwVinaiServiceImpl">
+				<property name="rwVinaiDAO">
+					<ref bean="rwVinaiDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+    <bean id="rwVinai2Service" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwVinai2ServiceImpl">
+				<property name="rwVinai2DAO">
+					<ref bean="rwVinai2DAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="prIncomeDeductService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PrIncomeDeductServiceImpl">
+				<property name="prIncomeDeductDAO">
+					<ref bean="prIncomeDeductDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="prEmployeeTextService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PrEmployeeTextServiceImpl">
+				<property name="prEmployeeTextDAO">
+					<ref bean="prEmployeeTextDAO" />
+				</property>
+				<property name="prEmployeeDao">
+					<ref bean="prEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwIncDecOtherService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwIncDecOtherServiceImpl">
+				<property name="rwIncDecOtherDAO">
+					<ref bean="rwIncDecOtherDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="vPnOrganizationSecurityDAO" class="com.ss.tp.dao.impl.VPnOrganizationSecurityDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="vPnOrganizationSecurityService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.VPnOrganizationSecurityServiceImpl">
+				<property name="pnOrgSec">
+					<ref bean="vPnOrganizationSecurityDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="prMonthlyLineDAO" class="com.ss.tp.dao.impl.PrMonthlyLineDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="prMonthlyLineService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PrMonthlyLineServiceImpl">
+				<property name="prMonthlyLineDAO">
+					<ref bean="prMonthlyLineDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="viewRwVinaiDAO" class="com.ss.tp.dao.impl.VRwVinaiDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="vRwVinaiService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.VRwVinaiServiceImpl">
+				<property name="viewRwVinaiDAO">
+					<ref bean="viewRwVinaiDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="rwConfirmDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.RwConfirmDataServiceImpl">
+				<property name="rwConfirmData">
+					<ref bean="rwConfirmDataDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnSalaryDAO" class="com.ss.tp.dao.impl.PnSalaryDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="pnSalaryService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnSalaryServiceImpl">
+				<property name="pnSalaryDAO">
+					<ref bean="pnSalaryDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- =========================================WG Payroll Web========================================== -->
+	<bean id="wgPrEmployeeTextDAO" class="com.ss.tp.dao.impl.WgPrEmployeeTextDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+		<property name="wgConfirmDataDAO">
+			<ref bean="wgConfirmDataDAO" />
+		</property>
+	</bean>
+	<bean id="wgPrEmployeeTextService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgPrEmployeeTextServiceImpl">
+				<property name="wgPrEmployeeTextDAO">
+					<ref bean="wgPrEmployeeTextDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wgPeriodLineDAO" class="com.ss.tp.dao.impl.WgPeriodLineDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="wgPrEmployeeDAO" class="com.ss.tp.dao.impl.WgPrEmployeeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="wgPrEmployeeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgPrEmployeeServiceImpl">
+				<property name="wgPrEmployeeDAO">
+					<ref bean="wgPrEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wgPeriodLineService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgPeriodLineServiceImpl">
+				<property name="wgPeriodLineDAO">
+					<ref bean="wgPeriodLineDAO" />
+				</property>
+				<property name="wgPrEmployeeTextDAO">
+					<ref bean="wgPrEmployeeTextDAO" />
+				</property>
+				<property name="wgPrEmployeeDAO">
+					<ref bean="wgPrEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wgIncomeDeductDAO" class="com.ss.tp.dao.impl.WgIncomeDeductDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="wgIncomeDeductService" class="com.ss.tp.service.impl.WgIncomeDeductServiceImpl">
+		<property name="wgIncomeDeductDAO">
+			<ref bean="wgIncomeDeductDAO" />
+		</property>
+	</bean>
+	<bean id="wgPrOvertimeDAO" class="com.ss.tp.dao.impl.WgPrOvertimeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="wgPrOvertimeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgPrOvertimeServiceImpl">
+				<property name="wgPrOvertimeDAO">
+					<ref bean="wgPrOvertimeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wgPrWorkDayService" class="com.ss.tp.service.impl.WgPrWorkDayServiceImpl">
+		<property name="wgPrWorkDayDAO">
+			<ref bean="wgPrWorkDayDAO" />
+		</property>
+		<property name="wgPeriodLineDAO">
+			<ref bean="wgPeriodLineDAO" />
+		</property>
+	</bean>
+	<bean id="wgPrWorkDayDAO" class="com.ss.tp.dao.impl.WgPrWorkDayDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="wgDraftDAO" class="com.ss.tp.dao.impl.WgDraftDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="wgDraftService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgDraftServiceImpl">
+				<property name="wgDraftDAO">
+					<ref bean="wgDraftDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wgEmployeeDAO" class="com.ss.tp.dao.impl.WgEmployeeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="wgEmployeeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgEmployeeServiceImpl">
+				<property name="wgEmployeeDAO">
+					<ref bean="wgEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wgPrIncDecOtherDAO" class="com.ss.tp.dao.impl.WgPrIncDecOtherDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="wgPrIncDecOtherService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgPrIncDecOtherServiceImpl">
+				<property name="wgPrIncDecOtherDAO">
+					<ref bean="wgPrIncDecOtherDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+
+	<bean id="wgConfirmDataDAO" class="com.ss.tp.dao.impl.WgConfirmDataDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="wgConfirmDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WgConfirmDataServiceImpl">
+				<property name="wgConfirmDataDAO">
+					<ref bean="wgConfirmDataDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnEmpMoveDAO" class="com.ss.tp.dao.impl.PnEmpMoveDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<bean id="pnEmpMoveService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnEmpMoveServiceImpl">
+				<property name="pnEmpMoveDAO">
+					<ref bean="pnEmpMoveDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnEmpImpDAO" class="com.ss.tp.dao.impl.PnEmpImpDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<bean id="pnEmpImpService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnEmpImpServiceImpl">
+				<property name="pnEmpImpDAO">
+					<ref bean="pnEmpImpDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wePnPromoteInstDAO" class="com.ss.tp.dao.impl.WePnPromoteInstDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="wePnPromoteInstService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WePnPromoteInstServiceImpl">
+				<property name="wePnPromoteInstDAO">
+					<ref bean="wePnPromoteInstDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="prEmpBankDAO" class="com.ss.tp.dao.impl.PrEmpBankDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<bean id="prEmpBankService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PrEmpBankServiceImpl">
+				<property name="prEmpBankDAO">
+					<ref bean="prEmpBankDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnTextControlDAO" class="com.ss.tp.dao.impl.PnTextControlDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="pnTextControlService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnTextControlServiceImpl">
+				<property name="pnTextControlDAO">
+					<ref bean="pnTextControlDAO" />
+				</property>
+				<property name="suUserOrganizationDAO">
+					<ref bean="suUserOrganizationDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnEmployeeTextDetailService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnEmployeeTextDetailServiceImpl">
+				<property name="pnEmployeeTextDetailDAO">
+					<ref bean="pnEmployeeTextDetailDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnEmployeeTextDetailDAO" class="com.ss.tp.dao.impl.PnEmployeeTextDetailDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="pnEmployeeTextDAO" class="com.ss.tp.dao.impl.PnEmployeeTextDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="pnEmployeeTextService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.PnEmployeeTextServiceImpl">
+				<property name="pnEmployeeTextDAO">
+					<ref bean="pnEmployeeTextDAO" />
+				</property>
+				<property name="pnEmployeeTextDetailDAO">
+					<ref bean="pnEmployeeTextDetailDAO" />
+				</property>
+				<property name="pnEmployeeDAO">
+					<ref bean="pnEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wePnEmployeeTextDAO" class="com.ss.tp.dao.impl.WePnEmployeeTextDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="wePnEmployeeTextService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WePnEmployeeTextServiceImpl">
+				<property name="wePnEmployeeTextDAO">
+					<ref bean="wePnEmployeeTextDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="wePnEmpTextReportDAO" class="com.ss.tp.dao.impl.WePnEmpTextReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="wePnEmpTextReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WePnEmpTextReportServiceImpl">
+				<property name="wePnEmpTextReportDAO">
+					<ref bean="wePnEmpTextReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+
+	<bean id="weWgEmployeeTextDAO" class="com.ss.tp.dao.impl.WeWgEmployeeTextDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="weWgEmployeeTextService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WeWgEmployeeTextServiceImpl">
+				<property name="weWgEmployeeTextDAO">
+					<ref bean="weWgEmployeeTextDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="weWgEmpTextReportDAO" class="com.ss.tp.dao.impl.WeWgEmpTextReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="weWgEmpTextReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.WeWgEmpTextReportServiceImpl">
+				<property name="weWgEmpTextReportDAO">
+					<ref bean="weWgEmpTextReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="srPvfEmpDAO" class="com.ss.tp.dao.impl.SrPvfEmpDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<bean id="srPvfEmpService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.SrPvfEmpServiceImpl">
+				<property name="srPvfEmpDAO">
+					<ref bean="srPvfEmpDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPrEmployeeDAO" class="com.ss.tp.dao.impl.FeeWpayPrEmployeeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="feeWpayPrEmployeeTextDAO" class="com.ss.tp.dao.impl.FeeWpayPrEmployeeTextDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+		<property name="feeWpayRwConfirmDataDAO">
+			<ref bean="feeWpayRwConfirmDataDAO" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwConfirmDataDAO" class="com.ss.tp.dao.impl.FeeWpayRwConfirmDataDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayPrEmployeeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayPrEmployeeServiceImpl">
+				<property name="feeWpayPrEmployeeDAO">
+					<ref bean="feeWpayPrEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPrPeriodLineDAO" class="com.ss.tp.dao.impl.FeeWpayPrPeriodLineDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayPrPeriodLineService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayPrPeriodLineServiceImpl">
+				<property name="feeWpayPrEmployeeDAO">
+					<ref bean="feeWpayPrEmployeeDAO" />
+				</property>
+				<property name="feeWpayPrEmployeeTextDAO">
+					<ref bean="feeWpayPrEmployeeTextDAO" />
+				</property>
+				<property name="feeWpayPrPeriodLineDAO">
+					<ref bean="feeWpayPrPeriodLineDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPrEmployeeTextService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayPrEmployeeTextServiceImpl">
+				<property name="feeWpayPrEmployeeTextDAO">
+					<ref bean="feeWpayPrEmployeeTextDAO" />
+				</property>
+				<property name="feeWpayPrEmployeeDAO">
+					<ref bean="feeWpayPrEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwConfirmDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwConfirmDataServiceImpl">
+				<property name="feeWpayRwConfirmDataDAO">
+					<ref bean="feeWpayRwConfirmDataDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPnEmployeeDAO" class="com.ss.tp.dao.impl.FeeWpayPnEmployeeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="feeWpayPnEmployeeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayPnEmployeeServiceImpl">
+				<property name="feeWpayPnEmployeeDAO">
+					<ref bean="feeWpayPnEmployeeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPrIncomeDeductDAO" class="com.ss.tp.dao.impl.FeeWpayPrIncomeDeductDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwHealthDAO" class="com.ss.tp.dao.impl.FeeWpayRwHealthDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwIncDecOtherDAO" class="com.ss.tp.dao.impl.FeeWpayRwIncDecOtherDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<bean id="feeWpayRwOvertimeDAO" class="com.ss.tp.dao.impl.FeeWpayRwOvertimeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwOvertimeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwOvertimeServiceImpl">
+				<property name="feeWpayRwOvertimeDAO">
+					<ref bean="feeWpayRwOvertimeDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwPremiumDAO" class="com.ss.tp.dao.impl.FeeWpayRwPremiumDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwPremiumReportDAO" class="com.ss.tp.dao.impl.FeeWpayRwPremiumReportDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwVinaiDAO" class="com.ss.tp.dao.impl.FeeWpayRwVinaiDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwVinai2DAO" class="com.ss.tp.dao.impl.FeeWpayRwVinai2DAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwVinai3DAO" class="com.ss.tp.dao.impl.FeeWpayRwVinai3DAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeWpayRwPremiumService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwPremiumServiceImpl">
+				<property name="feeWpayRwPremiumDAO">
+					<ref bean="feeWpayRwPremiumDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwPremiumReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwPremiumReportServiceImpl">
+				<property name="feeWpayRwPremiumReportDAO">
+					<ref bean="feeWpayRwPremiumReportDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwHealthService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwHealthServiceImpl">
+				<property name="feeWpayRwHealthDAO">
+					<ref bean="feeWpayRwHealthDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwVinaiService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwVinaiServiceImpl">
+				<property name="feeWpayRwVinaiDAO">
+					<ref bean="feeWpayRwVinaiDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwVinai2Service" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwVinai2ServiceImpl">
+				<property name="feeWpayRwVinai2DAO">
+					<ref bean="feeWpayRwVinai2DAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwVinai3Service" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwVinai3ServiceImpl">
+				<property name="feeWpayRwVinai3DAO">
+					<ref bean="feeWpayRwVinai3DAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPrIncomeDeductService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayPrIncomeDeductServiceImpl">
+				<property name="feeWpayPrIncomeDeductDAO">
+					<ref bean="feeWpayPrIncomeDeductDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayRwIncDecOtherService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayRwIncDecOtherServiceImpl">
+				<property name="feeWpayRwIncDecOtherDAO">
+					<ref bean="feeWpayRwIncDecOtherDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayConfirmDataDAO" class="com.ss.tp.dao.impl.FeeWpayConfirmDataDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="feeWpayConfirmDataService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayConfirmDataServiceImpl">
+				<property name="feeWpayConfirmDataDAO">
+					<ref bean="feeWpayConfirmDataDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPrWorkDayService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayPrWorkDayServiceImpl">
+				<property name="feeWpayPrWorkDayDAO">
+					<ref bean="feeWpayPrWorkDayDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="feeWpayPrWorkDayDAO" class="com.ss.tp.dao.impl.FeeWpayPrWorkDayDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+	</bean>
+	<bean id="feeWpayPrMonthlyLineDAO" class="com.ss.tp.dao.impl.FeeWpayPrMonthlyLineDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="feeWpayPrMonthlyLineService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeWpayPrMonthlyLineServiceImpl">
+				<property name="feeWpayPrMonthlyLineDAO">
+					<ref bean="feeWpayPrMonthlyLineDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+			<bean id="viewFeeWpayRwVinaiDAO" class="com.ss.tp.dao.impl.VFeeWpayRwVinaiDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="vFeeWpayRwVinaiService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.VFeeWpayRwVinaiServiceImpl">
+				<property name="viewFeeWpayRwVinaiDAO">
+					<ref bean="viewFeeWpayRwVinaiDAO" />
+				</property>
+			</bean>
+		</property>
+    </bean>
+	  <bean id="feeContractDetailsDAO" class="com.ss.tp.dao.impl.FeeContractDetailsDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+	</bean>
+	<bean id="feeContractDetailsService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.ss.tp.service.impl.FeeContractDetailsServiceImpl">
+				<property name="feeContractDetailsDAO">
+					<ref bean="feeContractDetailsDAO" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	</beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="WgPrOvertime" table="WG_PR_OVERTIME">
+
+     <id name="keySeq"
+        type="long"
+        column="KEY_SEQ"
+        length="8" >
+        <generator class="increment" />
+    </id>
+    
+	<property name="ouCode" type="string" column="OU_CODE" length="3" />
+	<property name="yearPr" type="double" column="YEAR_PR" length="4" />
+	<property name="periodPr" type="double" column="PERIOD_PR" length="2" />
+	<property name="empCode" type="string" column="EMP_CODE" length="10"/>
+	
+	<property name="otType" type="string" column="OT_TYPE" length="1"/>
+	<property name="yearWork" type="double" column="YEAR_WORK" length="4"/>
+	<property name="periodWork" type="double" column="PERIOD_WORK" length="2"/>
+	<property name="codeSeq" type="long" column="CODE_SEQ" />
+	<property name="fiscalYear" type="double" column="FISCAL_YEAR" length="4"/>
+	<property name="refNo" type="string" column="REF_NO" length="100"/>
+	<property name="startDate" type="timestamp" column="START_DATE" />
+	<property name="endDate" type="timestamp" column="END_DATE" />
+	<property name="totDay1" type="double" column="TOT_DAY1" />
+	<property name="totDay15" type="double" column="TOT_DAY15" />
+	<property name="totDay3" type="double" column="TOT_DAY3" />
+	
+	<property name="amtDay1" type="double" column="AMT_DAY1" />
+	<property name="amtDay15" type="double" column="AMT_DAY15" />
+	<property name="amtDay3" type="double" column="AMT_DAY3" />
+	<property name="flagWork" type="string" column="FLAG_WORK" length="1"/>
+	<property name="flagPr" type="string" column="FLAG_PR" length="1"/>
+	<property name="seqData" type="double" column="SEQ_DATA" length="3"/>
+	
+	<property name="confirmFlag" type="string" column="CONFIRM_FLAG" length="1"/>
+	<property name="creBy" type="string" column="CRE_BY" length="15"/>
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15"/>
+	<property name="updDate" type="timestamp" column="UPD_DATE" />
+	
+</class>
+</hibernate-mapping>

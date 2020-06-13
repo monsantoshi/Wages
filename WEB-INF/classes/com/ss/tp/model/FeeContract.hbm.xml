@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="FeeContract" table="FEE_CONTRACT">
+	<composite-id name="pk" class="FeeContractPK">
+		<key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+		<key-property name="codeSeq" column="CODE_SEQ" type="double"/>
+		<key-property name="yearCon" column="YEAR_CON" type="string" length="6" />
+		<key-property name="contractNo" column="CONTRACT_NO" type="string" length="20" />
+	</composite-id>
+	<property name="conDate" type="timestamp" column="CONTRACT_DATE" />
+	<property name="instructNo" type="string" column="INSTRUCT_NO" length="20" />
+	<property name="instructDate" type="timestamp" column="INSTRUCT_DATE" />
+	<property name="promoteDate" type="timestamp" column="PROMOTE_DATE" />
+	<property name="sContactDate" type="timestamp" column="S_CONTACT_DATE" />
+	<property name="eContactDate" type="timestamp" column="E_CONTACT_DATE" />
+	<property name="dutySeq" type="integer" column="DUTY_SEQ" />
+	<property name="dutyCode" type="string" column="DUTY_CODE" length="10" />
+	<property name="note" type="string" column="NOTE" length="200" />
+	<property name="inactive" type="string" column="INACTIVE" length="1" />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE"  />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE" />
+	<many-to-one name="refPnOrganization" class="PnOrganization" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="CODE_SEQ" />
+    </many-to-one>
+  	<many-to-one name="refWgDuty" class="FeeWgDuty" update="false" insert="false"  lazy="false" >
+                    <column name="OU_CODE" />
+                    <column name="DUTY_CODE" />
+    </many-to-one>
+      <set name="feeContractDetl" lazy="true" inverse="true" cascade="all" order-by="CONTRACT_NO">
+		<key>
+			<column name="OU_CODE" not-null="true"/>
+			<column name="CODE_SEQ" not-null="true"/>	
+			<column name="YEAR_CON" not-null="true"/>	
+			<column name="CONTRACT_NO" not-null="true"/>	
+		</key>		
+		<one-to-many class="FeeContractDetails" />
+	</set>
+</class>
+</hibernate-mapping>

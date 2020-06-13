@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+	<class name="RwParTable" table="RW_PARTABLE">
+		<id name="paramKey" type="java.lang.Double" column="PARAMKEY" length="10">
+			<generator class="assigned" />
+		</id>
+		<property name="paramDesc" column="PARAMDESC" type="java.lang.String" length="255" />
+		<property name="paramLang" column="PARAMLANG" type="java.lang.String" length="2" />
+	</class>
+</hibernate-mapping>

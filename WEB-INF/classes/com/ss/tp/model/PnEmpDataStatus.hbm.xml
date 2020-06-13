@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PnEmpDataStatus" table="PN_EMP_DATA_STATUS">
+	 <composite-id name="pk" class="PnEmpDataStatusPK">
+	             <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	             <key-property name="year" type="long" column="YEAR"  />
+	             <key-property name="month" type="long" column="MONTH"  />
+	             <key-property name="empCode" column="EMP_CODE" type="string" length="10"/>
+	 </composite-id>
+	 <property name="statusDate" type="timestamp" column="STATUS_DATE" />
+	 <property name="hisSeq" type="long" column="HIS_SEQ"  />
+	 <property name="codeSeq" type="long" column="CODE_SEQ"  />
+	 <property name="codeSeqAct" type="long" column="CODE_SEQ_ACT" />
+	 <property name="hisSeqAct" type="long" column="HIS_SEQ_ACT" />
+	 <property name="preName" type="string" column="PRE_NAME" length="50" />
+	 <property name="firstName" type="string" column="FIRST_NAME" length="100" />
+	 <property name="lastName" type="string" column="LAST_NAME" length="100" />
+	 <property name="account" type="string" column="ACCOUNT" length="10" />
+	 <property name="salary" type="long" column="SALARY" />
+	 <property name="payFlag" type="string" column="PAY_FLAG" length="1" />
+	 <property name="empStatus" type="string" column="EMP_STATUS" length="1" />
+	 <property name="idate" type="timestamp" column="IDATE" />
+	 <property name="pdate" type="timestamp" column="PDATE" />	 
+  	 <property name="gworkCode" type="string" column="GWORK_CODE" length="10"/>
+	 <property name="positionCode" type="string" column="POSITION_CODE" length="10" />
+	 <property name="positionDate" type="timestamp" column="POSITION_DATE" />
+	 <property name="levelCode" type="string" column="LEVEL_CODE" length="10" />
+	 <property name="levelDate" type="timestamp" column="LEVEL_DATE" />
+	 <property name="adminCode" type="string" column="ADMIN_CODE" length="10" />
+	 <property name="adminDate" type="timestamp" column="ADMIN_DATE" />
+	 <property name="retireStatus" type="string" column="RETIRE_STATUS" length="1" />
+	<many-to-one name="refPnOrganization" class="PnOrganization" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="CODE_SEQ" />
+    </many-to-one>
+    
+	<many-to-one name="refDbPreSuff" class="DbPreSuff" update="false" insert="false"  lazy="false">
+                    <column name="PRE_NAME" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+<class name="TaWgControl" table="TA_WG_CONTROL">
+	<meta attribute="extends" inherit="false">BaseModel</meta>
+
+    <composite-id name="taWgControlPk" class="TaWgControlPk">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="taYear" column="TA_YEAR" type="integer" />
+        <key-property name="taPeriod" column="TA_PERIOD" type="integer" />
+        <key-property name="userId" column="USER_ID" type="string" length="15" />
+<!--         <key-property name="codeSeq" column="CODE_SEQ" type="integer" /> -->
+    </composite-id>
+    
+    <property name="flagClose" type="string" column="FLAG_CLOSE" length="1" />    
+    <property name="creBy" type="string" column="CRE_BY" length="15" />
+    <property name="creDate" type="timestamp" column="CRE_DATE" />
+    <property name="updBy" type="string" column="UPD_BY" length="15" />
+    <property name="updDate" type="timestamp" column="UPD_DATE" />
+	<!-- 
+	<many-to-one name="pnOrgzation" class="PnOrganization" update="false" insert="false"  lazy="false" outer-join="true">
+    	<column name="OU_CODE" />
+        <column name="CODE_SEQ" />
+    </many-to-one>   
+    --> 
+</class>
+</hibernate-mapping>

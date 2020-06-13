@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+
+<class  name="VTaWgMonthEmpWork" table="V_TA_WG_MONTH_EMP_WORK">
+  <composite-id name="vtaWgMonthEmpWorkPK" class="VTaWgMonthEmpWorkPK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="workYear" column="WORK_YEAR" type="integer"  />
+        <key-property name="empCode" column="EMP_CODE" type="string" length="10" />
+        <key-property name="workCode" column="WORK_CODE" type="string" length="2" />
+  </composite-id>    
+  <property name="codeSeq" column="CODE_SEQ" type="integer"  />
+  <property name="workDesc" type="string" column="WORK_DESC" length="50" />
+  <property name="fullName" type="string" column="FULL_NAME" length="250" />
+  <property name="month1" type="string" column="MONTH1" length="11" />
+  <property name="month2" type="string" column="MONTH2" length="11" />
+  <property name="month3" type="string" column="MONTH3" length="11" />
+  <property name="month4" type="string" column="MONTH4" length="11" />
+  <property name="month5" type="string" column="MONTH5" length="11" />
+  <property name="month6" type="string" column="MONTH6" length="11" />
+  <property name="month7" type="string" column="MONTH7" length="11" />
+  <property name="month8" type="string" column="MONTH8" length="11" />
+  <property name="month9" type="string" column="MONTH9" length="11" />
+  <property name="month10" type="string" column="MONTH10" length="11" />
+  <property name="month11" type="string" column="MONTH11" length="11" />
+  <property name="month12" type="string" column="MONTH12" length="11" />
+  <property name="total" type="string" column="TOTAL" length="11" />
+  <property name="orgCode" type="string" column="ORG_CODE" length="20" />
+  <property name="orgDesc" type="string" column="ORG_DESC" length="200" />
+  <property name="orgWorkCode" type="string" column="ORGWORK_CODE" length="20" />
+  <property name="orgWorkDesc" type="string" column="ORGWORK_DESC" length="200" />
+  <property name="secCode" type="string" column="SEC_CODE" length="20" />
+  <property name="secDesc" type="string" column="SEC_DESC" length="200" />
+  <property name="divCode" type="string" column="DIV_CODE" length="20" />
+  <property name="divDesc" type="string" column="DIV_DESC" length="200" />
+  <property name="areaCode" type="string" column="AREA_CODE" length="20" />
+  <property name="areaDesc" type="string" column="AREA_DESC" length="200" />
+</class>
+</hibernate-mapping>

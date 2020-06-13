@@ -1,0 +1,135 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="FeeWgEmployee" table="FEE_WG_EMPLOYEE">
+	<composite-id name="pk" class="FeeWgEmployeeTextPK">
+		<key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+		<key-property name="empCode" column="EMP_CODE" type="string" length="13"/>
+	</composite-id>
+	<property name="flagPn" type="string" column="FLAG_PN" length="1" />
+	<property name="codeSeq" type="double" column="CODE_SEQ" />
+	<property name="codeSeqAct" type="double" column="CODE_SEQ_ACT" />
+	<property name="preName" type="string" column="PRE_NAME" length="50" />
+	<property name="firstName" type="string" column="FIRST_NAME" length="100" />
+	<property name="lastName" type="string" column="LAST_NAME" length="100" />
+	<property name="account" type="string" column="ACCOUNT"  length="10" />
+	<property name="salary" type="integer" column="SALARY" />
+	<property name="salaryStep" type="string" column="SALARY_STEP" length="1" />
+	<property name="payFlag" type="string" column="PAY_FLAG" length="1" />
+	<property name="warfree" type="integer" column="WARFEE" />
+	<property name="sex" type="string" column="SEX" length="1" />
+	<property name="maritalStatus" type="string" column="MARITAL_STATUS" length="1" />
+	<property name="clss" type="string" column="CLASS" length="1" />
+	<property name="empStatus" type="string" column="EMP_STATUS" length="1" />
+	<property name="birthDate" type="timestamp" column="BIRTH_DATE" />
+	<property name="race" type="string" column="RACE" length="50" />
+	<property name="nationality" type="string" column="NATIONALITY"  length="50" />
+	<property name="religion" type="string" column="RELIGION" length="50" />
+	<property name="idate" type="timestamp" column="IDATE" />
+	<property name="gworkCode" type="string" column="GWORK_CODE" length="10" />
+	<property name="dutyCode" type="string" column="DUTY_CODE" length="10" />
+	<property name="dutySeq" type="integer" column="DUTY_SEQ" />
+	
+	<property name="firstEduCode" type="string" column="FIRST_EDU_CODE" length="10" />
+	<property name="lastEduCode" type="integer" column="LAST_EDU_CODE" length="10" />
+	<property name="lastAdjustEdu" type="string" column="LAST_ADJUST_EDU" length="10" />
+	<property name="levelCode" type="string" column="LEVEL_CODE" length="10" />
+	<property name="adminDate" type="timestamp" column="ADMIN_DATE" />
+	<property name="fundStatus" type="string" column="FUND_STATUS"  length="1" />
+	<property name="ordain" type="string" column="ORDAIN" length="1" />
+	<property name="idcardNo" type="string" column="IDCARD_NO" length="20" />
+	<property name="idcardExpire" type="timestamp" column="IDCARD_EXPIRE" />
+	<property name="idcardIssue" type="string" column="IDCARD_ISSUE" length="200"/>
+	<property name="idcardProvince" type="string" column="IDCARD_PROVINCE" length="10" />
+	<property name="taxId" type="string" column="TAX_ID" length="20" />
+	<property name="bloodGroup" type="string" column="BLOOD_GROUP" length="10" />
+	<property name="weight" type="integer" column="WEIGHT" />
+	<property name="height" type="integer" column="HEIGHT" />
+	<property name="typeTha" type="integer" column="TYPE_THA" />
+	<property name="typeEng" type="integer" column="TYPE_ENG" />
+	<property name="militatyStatus" type="string" column="MILITATY_STATUS" length="1" />
+	<property name="telHome" type="string" column="TEL_HOME" length="50" />
+	<property name="telMobile" type="string" column="TEL_MOBILE" length="50" />
+	<property name="pager" type="string" column="PAGER" length="20" />
+	<property name="fax" type="string" column="FAX" length="50" />
+	
+	<property name="email" type="string" column="EMAIL" length="50" />
+	<property name="houseAddr" type="string" column="HOUSE_ADDR" length="20" />
+	<property name="houseSoi" type="string" column="HOUSE_SOI" length="50" />
+	<property name="houseRoad" type="string" column="HOUSE_ROAD" length="50" />
+	<property name="houseDistrict" type="string" column="HOUSE_DISTRICT" length="10" />
+	<property name="houseAmphor" type="string" column="HOUSE_AMPHOR"  length="10" />
+	<property name="houseProvince" type="string" column="HOUSE_PROVINCE" length="10" />
+	<property name="houseZipCode" type="string" column="HOUSE_ZIP_CODE" length="10" />
+	<property name="censusStatus" type="string" column="CENSUS_STATUS" length="1" />
+	<property name="censusAddr" type="string" column="CENSUS_ADDR" length="200"/>
+	<property name="censusSoi" type="string" column="CENSUS_SOI" length="50" />
+	<property name="censusRoad" type="string" column="CENSUS_ROAD" length="50" />
+	<property name="censusDistrict" type="string" column="CENSUS_DISTRICT" length="10" />
+	<property name="censusAmphor" type="string" column="CENSUS_AMPHOR" length="10" />
+	<property name="censusProvince" type="string" column="CENSUS_PROVINCE" length="10" />
+	<property name="censusZipCode" type="string" column="CENSUS_ZIP_CODE" length="10" />
+	<property name="spouseAddress" type="string" column="SPOUSE_ADDRESS" length="200" />
+	<property name="spouseStatus" type="string" column="SPOUSE_STATUS" length="1" />
+	<property name="spouseCareer" type="string" column="SPOUSE_CAREER" length="50" />
+	<property name="spouseOffice" type="string" column="SPOUSE_OFFICE" length="200" />
+	<property name="spouseTel" type="string" column="SPOUSE_TEL" length="50" />
+	<property name="fatherName" type="string" column="FATHER_NAME" length="100" />
+	
+	<property name="fatherStatus" type="string" column="FATHER_STATUS" length="1" />
+	<property name="fatherCareer" type="string" column="FATHER_CAREER" length="50" />
+	<property name="fatherOffice" type="string" column="FATHER_OFFICE" length="200" />
+	<property name="fatherAddress" type="string" column="FATHER_ADDRESS" length="200" />
+	<property name="motherName" type="string" column="MOTHER_NAME" length="100" />
+	<property name="motherStatus" type="string" column="MOTHER_STATUS"  length="1" />
+	<property name="motherCareer" type="string" column="MOTHER_CAREER" length="100" />
+	<property name="motherOffice" type="string" column="MOTHER_OFFICE" length="100" />
+	<property name="motherAddress" type="string" column="MOTHER_ADDRESS" length="200" />
+	<property name="refName" type="string" column="REF_NAME" length="100"/>
+	<property name="refRelation" type="string" column="REF_RELATION" length="100" />
+	<property name="refCareer" type="string" column="REF_CAREER" length="100" />
+	<property name="refOffice" type="string" column="REF_OFFICE" length="100" />
+	<property name="refTel" type="string" column="REF_TEL" length="50" />
+	<property name="refTelOff" type="string" column="REF_TEL_OFF" length="50" />
+	<property name="refAddress" type="string" column="REF_ADDRESS" length="200" />
+	<property name="retireFlag" type="string" column="RETIRE_FLAG" length="1" />
+	<property name="hisSeqRet" type="integer" column="HIS_SEQ_RET" />
+	<property name="lastPromoteDate" type="timestamp" column="LAST_PROMOTE_DATE" />
+	<property name="lastInstructNo" type="string" column="LAST_INSTRUCT_NO" length="10" />
+	<property name="lastInstructDate" type="timestamp" column="LAST_INSTRUCT_DATE" />
+	<property name="note" type="string" column="NOTE" length="200" />
+	
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE"  />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE" />
+	<property name="house" type="string" column="HOUSE" length="1" />
+	<property name="retire" type="string" column="RETIRE" length="1"/>
+	<property name="dutyDate" type="timestamp" column="DUTY_DATE" />
+	<property name="instructNo" type="string" column="INSTRUCT_NO" length="20" />
+	<property name="instructDate" type="timestamp" column="INSTRUCT_DATE" />
+	<property name="scontactDate" type="timestamp" column="S_CONTACT_DATE" />
+	<property name="econtactDate" type="timestamp" column="E_CONTACT_DATE" />
+	
+	<many-to-one name="refPnOrganization" class="PnOrganization" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="CODE_SEQ" />
+    </many-to-one>
+    <many-to-one name="refPnOrganizationWork" class="PnOrganization" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="CODE_SEQ_ACT" />
+    </many-to-one>
+	<many-to-one name="refDbPreSuff" class="DbPreSuff" update="false" insert="false"  lazy="false">
+                    <column name="PRE_NAME" />
+    </many-to-one>
+   
+	<many-to-one name="refWgDuty" class="WgDuty" update="false" insert="false"  lazy="false" >
+                    <column name="OU_CODE" />
+                    <column name="DUTY_CODE" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

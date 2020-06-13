@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PnOrganization" table="PN_ORGANIZATION">
+	 <composite-id name="pk" class="PnOrganizationPK">
+	             <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="codeSeq" column="CODE_SEQ" type="long" />
+	 </composite-id>
+	<property name="orgCode" type="string" column="ORG_CODE" length="50" />
+	<property name="orgShort" type="string" column="ORG_SHORT" length="200" />
+	<property name="orgDesc" type="string" column="ORG_DESC" length="100" />
+	<property name="levelCode" type="string" column="LEVEL_CODE" length="100" />
+	<property name="masterCode" type="string" column="MASTER_CODE"  length="100" />
+	<property name="seq" type="long" column="SEQ" length="22" />
+	<property name="weight" type="long" column="WEIGHT" length="22" />
+	<property name="id" type="string" column="ID" length="20" />
+	<property name="deptCode" type="string" column="DEPT_CODE" length="100" />
+	<property name="deptDesc" type="string" column="DEPT_DESC" length="50" />
+	<property name="deptSeq" type="long" column="DEPT_SEQ" length="22" />
+	<property name="partCode" type="string" column="PART_CODE" length="100" />
+	<property name="partDesc" type="string" column="PART_DESC" length="100" />
+	<property name="partSeq" type="long" column="PART_SEQ" length="22" />
+	<property name="divCode" type="string" column="DIV_CODE"  length="100" />
+	<property name="divDesc" type="string" column="DIV_DESC" length="100" />
+	<property name="divShort" type="string" column="DIV_SHORT" length="10" />
+    <property name="divSeq" type="long" column="DIV_SEQ" length="22" />
+	<property name="secCode" type="string" column="SEC_CODE" length="50" />
+	<property name="secDesc" type="string" column="SEC_DESC" length="100" />
+	<property name="secSeq" type="long" column="SEC_SEQ" length="22" />
+	<property name="workCode" type="string" column="WORK_CODE" length="20" />
+    <property name="workDesc" type="string" column="WORK_DESC" length="200" />
+    <property name="workSeq" type="long" column="WORK_SEQ" length="22" />
+    <property name="addition1Code" type="string" column="ADDITION1_CODE" length="20" />
+    <property name="addition1Desc" type="string" column="ADDITION1_DESC" length="200" />
+    <property name="addition1Seq" type="long" column="ADDITION1_SEQ" length="22" />
+    <property name="addition2Code" type="string" column="ADDITION2_CODE" length="20" />
+    <property name="addition2Desc" type="string" column="ADDITION2_DESC" length="200" />
+    <property name="addition2Seq" type="long" column="ADDITION2_SEQ" length="22" />
+    <property name="addition3Code" type="string" column="ADDITION3_CODE" length="20" />
+    <property name="addition3Desc" type="string" column="ADDITION3_DESC" length="200" />
+    <property name="addition3Seq" type="long" column="ADDITION3_SEQ" length="22" />
+    <property name="lastActionDate" type="timestamp" column="LAST_ACTION_DATE" length="7" />
+    <property name="lastDocNo" type="string" column="LAST_DOC_NO" length="10" />
+    <property name="lastDocDate" type="timestamp" column="LAST_DOC_DATE" length="7" />
+	<property name="inactive" type="string" column="INACTIVE" length="1" />
+	<property name="provinceCode" type="string" column="PROVINCE_CODE" length="20" />
+    <property name="zipCode" type="string" column="ZIP_CODE" length="20" />
+    <property name="creBy" type="string" column="CRE_BY" length="15" />
+    <property name="creDate" type="timestamp" column="CRE_DATE" length="7" />
+    <property name="updBy" type="string" column="UPD_BY" length="15" />
+    <property name="updDate" type="timestamp" column="UPD_DATE" length="7" />
+    <property name="bankFlag" type="string" column="BANK_FLAG" length="1" />
+    <property name="b27Flag" type="string" column="B27_FLAG" length="1" />
+    <property name="areaSeq" type="long" column="AREA_SEQ" length="22" />
+    <property name="areaCode" type="string" column="AREA_CODE" length="20" />
+  	<property name="areaDesc" type="string" column="AREA_DESC" length="200" />
+	
+</class>
+</hibernate-mapping>

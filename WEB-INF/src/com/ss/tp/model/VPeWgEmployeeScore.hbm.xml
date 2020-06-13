@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+
+<class  name="VPeWgEmployeeScore" table="V_PE_WG_EMPLOYEE_SCORE">
+  <composite-id name="vpeWgEmployeeScorePK" class="VPeWgEmployeeScorePK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="evaYear" column="EVA_YEAR" type="integer" />        
+        <key-property name="empCode" column="EMP_CODE" type="string" length="10" />       
+  </composite-id>    
+  <property name="empName" type="string" column="EMP_NAME" length="251" />
+  <property name="codeSeq" type="integer" column="CODE_SEQ" />
+  <property name="orgCode" type="string" column="ORG_CODE" length="20" />
+  <property name="orgDesc" type="string" column="ORG_DESC" length="200" />
+  <property name="levelCode" type="string" column="LEVEL_CODE" length="10" /> 
+  <property name="areaCode" type="string" column="AREA_CODE" length="20" />
+  <property name="areaDesc" type="string" column="AREA_DESC" length="200" />  
+  <property name="divCode" type="string" column="DIV_CODE" length="20" />
+  <property name="divDesc" type="string" column="DIV_DESC" length="200" />  
+  <property name="secCode" type="string" column="SEC_CODE" length="20" />
+  <property name="secDesc" type="string" column="SEC_DESC" length="200" />  
+  <property name="workCode" type="string" column="WORK_CODE" length="20" />
+  <property name="workDesc" type="string" column="WORK_DESC" length="200" />   
+  <property name="score1" type="double" column="SCORE1" />
+  <property name="score2" type="double" column="SCORE2" />
+  <property name="scoreAvg" type="double" column="SCORE_AVG" />  
+  <property name="scoreAdjust" type="double" column="SCORE_ADJUST" />  
+  <property name="scoreNet" type="double" column="SCORE_NET" />
+</class>
+</hibernate-mapping>

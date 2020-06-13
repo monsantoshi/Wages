@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PnAdmin" table="PN_ADMIN">
+	 <composite-id name="pk" class="PnAdminPK">
+	             <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="adminCode" column="ADMIN_CODE" type="string" length="10"/>
+	 </composite-id>
+	<property name="seq" type="double" column="SEQ" />
+	<property name="adminDesc" type="string" column="ADMIN_DESC" length="200" />
+	<property name="stdBy" type="string" column="STDBY" length="1" />
+	<property name="inActive" type="string" column="INACTIVE" length="1"/>
+</class>
+</hibernate-mapping>

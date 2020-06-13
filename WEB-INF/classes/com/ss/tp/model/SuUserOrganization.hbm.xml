@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+	<class name="SuUserOrganization" table="SU_USER_ORGANIZATION">
+		<composite-id name="pk" class="SuUserOrganizationPK">
+			<key-property name="userId" column="USER_ID" type="string" length="15" />
+			<key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+			<key-property name="codeSeq" column="CODE_SEQ" type="double" length="3" />
+		</composite-id>
+		<property name="creBy" type="string" column="CRE_BY" length="15" />
+		<property name="creDate" type="timestamp" column="CRE_DATE" />
+		<property name="updBy" column="UPD_BY" type="string" length="15" />
+		<property name="updDate" column="UPD_DATE" type="timestamp" length="7" />
+	</class>
+</hibernate-mapping>

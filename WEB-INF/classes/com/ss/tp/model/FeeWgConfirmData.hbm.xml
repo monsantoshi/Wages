@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+	<class name="FeeWgConfirmData" table="FEE_WG_CONFIRM_DATA">
+		<composite-id name="pk" class="FeeWgConfirmDataPK">
+			<key-property name="ouCode" column="OU_CODE" type="string" length="3"/>
+			<key-property name="year" column="YEAR" type="long" length="4"/>
+			<key-property name="period" column="PERIOD" type="long" length="2"/>
+			<key-property name="userId" column="USER_ID" type="string" length="15"/>
+			<key-property name="flag" column="FLAG" type="string" length="1"/>
+		</composite-id>
+		
+		<property name="creDate" type="timestamp" column="CRE_DATE" />
+	</class>
+	
+	
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PeControl" table="PE_CONTROL">
+	 <composite-id name="pk" class="PeControlPK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="evaYear" column="EVA_YEAR" type="long" />
+	            <key-property name="evaTime" column="EVA_TIME" type="long" />
+	         <!--     <key-property name="codeSeq" column="CODE_SEQ" type="long" /> -->
+	            <key-property name="userId" column="USER_ID" type="string" length="15" />
+	 </composite-id>
+	<property name="flagClose" type="string" column="FLAG_CLOSE" length="1" />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE"  />
+</class>
+</hibernate-mapping>

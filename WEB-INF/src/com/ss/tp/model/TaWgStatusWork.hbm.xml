@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+
+<class  name="TaWgStatusWork" table="TA_WG_STATUS_WORK">
+    <meta attribute="extends" inherit="false">BaseModel</meta>
+    
+    <composite-id name="taWgStatusWorkPk" class="TaWgStatusWorkPK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="workCode" column="WORK_CODE" type="string" length="2" />
+    </composite-id>    
+   
+    <property name="workDesc" type="string" column="WORK_DESC" length="50" />
+    <property name="evaType" type="string" column="EVA_TYPE" length="1" />
+    <property name="inactive" type="string" column="INACTIVE" length="1" />
+    <property name="workType" type="string" column="WORK_TYPE" length="1" />
+    <property name="creBy" type="string" column="CRE_BY" length="15" />
+    <property name="creDate" type="timestamp" column="CRE_DATE" />
+    <property name="updBy" type="string" column="UPD_BY" length="15" />
+    <property name="updDate" type="timestamp" column="UPD_DATE"  />
+
+    <many-to-one name="suOrganize" class="SuOrganize" update="false" insert="false"  lazy="false">
+    	<column name="OU_CODE" />        
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

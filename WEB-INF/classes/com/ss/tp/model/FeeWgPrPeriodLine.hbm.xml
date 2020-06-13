@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+	<class name="FeeWgPrPeriodLine" table="FEE_WG_PR_PERIOD_LINE">
+
+		<composite-id name="pk" class="FeeWgPrPeriodLinePK">
+			<key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+			<key-property name="year" column="YEAR" type="double" length="4" />
+			<key-property name="period" column="PERIOD" type="double" length="2" />
+			<key-property name="creBy" column="CRE_BY" type="string" length="15" />
+		</composite-id>
+		<property name="periodName" type="string" column="PERIOD_NAME" length="100" />
+		<property name="mainClose" type="string" column="MAIN_CLOSE" length="1" />
+		<property name="tranClose" type="string" column="TRAN_CLOSE" length="1" />
+		<property name="prClose" type="string" column="PR_CLOSE" length="1" />
+
+	</class>
+</hibernate-mapping>

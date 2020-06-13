@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+	<class name="ApPeriodLine" table="AP_PERIOD_LINE">
+
+		<composite-id name="pk" class="ApPeriodLinePK">
+			<key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+			<key-property name="year" column="YEAR_PN" type="double" length="4" />
+			<key-property name="month" column="MONTH_PN" type="double" length="2" />
+			<key-property name="volumeSet" column="VOLUME_SET" type="string" length="10" />
+		</composite-id>
+		<property name="approveClose" type="string" column="APPROVE_CLOSE" length="1" />
+		<property name="transferClose" type="string" column="TRANSFER_CLOSE" length="1" />
+		<property name="bankClose" type="string" column="BANK_CLOSE" length="1" />
+        <property name="creBy" type="string" column="CRE_BY" length="15"/>
+		<property name="creDate" type="timestamp" column="CRE_DATE" />
+		<property name="updBy" type="string" column="UPD_BY" length="15"/>
+		<property name="updDate" type="timestamp" column="UPD_DATE" />
+		<property name="approveBy" type="string" column="APPROVE_BY" length="15"/>
+		<property name="approveDate" type="timestamp" column="APPROVE_DATE" />
+		<property name="transferBy" type="string" column="TRANSFER_BY" length="15"/>
+		<property name="transferDate" type="timestamp" column="TRANSFER_DATE" />
+		<property name="bankTransferBy" type="string" column="BANK_TRANSFER_BY" length="15"/>
+		<property name="bankTransferDate" type="timestamp" column="BANK_TRANSFER_DATE" />
+	</class>
+</hibernate-mapping>

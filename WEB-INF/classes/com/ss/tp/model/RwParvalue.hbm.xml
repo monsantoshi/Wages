@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+	<class name="RwParValue" table="RW_PARVALUE">
+		<composite-id name="pk" class="RwParValuePK">
+			<key-property name="paramKey" column="PARAMKEY" type="java.lang.Double" length="10" />
+			<key-property name="paramIndex" column="PARAMINDEX" type="java.lang.Double" length="10" />
+		</composite-id>
+		<property name="paramValN" type="java.lang.Double" column="PARAMVALN" />
+		<property name="paramValV" type="java.lang.String" column="PARAMVALV" length="200" />
+		<property name="paramValD" type="java.sql.Timestamp" column="PARAMVALD" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<orion-web-app  
+               servlet-webdir="/servlet/"
+               directory-browsing="deny" 
+               development="false"
+               >
+    <!-- did not work with oc4j 10.1.3 
+  <web-app-class-loader search-local-classes-first="true"
+   include-war-manifest-class-path="true" />
+    -->
+</orion-web-app>

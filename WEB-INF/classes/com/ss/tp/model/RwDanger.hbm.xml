@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="RwDanger" table="RW_DANGER">
+
+     <id name="keySeq"
+        type="long"
+        column="KEY_SEQ"
+        length="8" >
+        <generator class="increment" />
+    </id>
+	<property name="ouCode" type="string" column="OU_CODE" length="3" />
+	<property name="yearPr" type="double" column="YEAR_PR" length="4" />
+	<property name="periodPr" type="double" column="PERIOD_PR" length="2" />
+	<property name="empCode" type="string" column="EMP_CODE" length="10"/>
+	
+	<property name="yearWork" type="double" column="YEAR_WORK" length="4"/>
+	<property name="periodWork" type="double" column="PERIOD_WORK" length="2"/>
+	<property name="codeSeq" type="long" column="CODE_SEQ" />
+	
+	
+	<property name="fullDay" type="double" column="FULL_DAY" />
+	<property name="halfDay" type="double" column="HALF_DAY" />
+	<property name="totalAmt" type="double" column="TOTAL_AMT" />
+	
+	
+	<property name="flagPr" type="string" column="FLAG_PR" length="1"/>
+	<property name="seqData" type="double" column="SEQ_DATA" length="3"/>
+	<property name="confirmFlag" type="string" column="CONFIRM_FLAG" length="1"/>
+	<property name="creBy" type="string" column="CRE_BY" length="15"/>
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15"/>
+	<property name="updDate" type="timestamp" column="UPD_DATE" />
+	
+	
+	<many-to-one name="refPnEmployee" class="PnEmployee" update="false" insert="false"  lazy="false">
+					<column name="OU_CODE" />
+					<!--<column name="CODE_SEQ" />-->
+                    <column name="EMP_CODE" />	
+    </many-to-one>
+    
+	<many-to-one name="refPnOrganization" class="PnOrganization" update="false" insert="false"  lazy="false">
+					<column name="OU_CODE" />
+					<column name="CODE_SEQ" />	
+    </many-to-one>    
+	
+</class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VFeeWpPrEmpTextMoveRep" table="V_FEE_WP_PR_EMP_TEXT_MOVE_REP">
+
+     <id name="keySeq"
+        type="integer"
+        column="KEY_SEQ"
+        length="8" >
+    	<generator class="assigned" />
+    </id>
+	<property name="ouCode" type="string" column="OU_CODE" length="3" />
+	<property name="year" type="integer" column="YEAR" length="4" />
+	<property name="period" type="integer" column="PERIOD" length="2" />
+	<property name="empCode" type="string" column="EMP_CODE" length="10"/>
+	<property name="codeSeqWork" type="integer" column="CODE_SEQ_WORK" />
+	<property name="taxId" type="string" column="TAX_ID" length="30"/>
+	<property name="marriedStatus" type="string" column="MARRIED_STATUS" length="1"/>
+	<property name="payStatus" type="string" column="PAY_STATUS" length="1"/>
+	<property name="bankId" type="string" column="BANK_ID" length="30"/>
+	<property name="costChild" type="integer" column="COST_CHILD" length="5"/>
+	<property name="gundanFlag" type="string" column="GUNDAN_FLAG" length="1"/>
+	<property name="flagPr" type="string" column="FLAG_PR" length="1"/>
+	<property name="flagStatus" type="string" column="FLAG_STATUS" length="1"/>
+	<property name="seqData" type="integer" column="SEQ_DATA" />	
+	<property name="confirmFlag" type="string" column="CONFIRM_FLAG" length="1"/>	
+	<property name="creBy" type="string" column="CRE_BY" length="15"/>
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15"/>
+	<property name="updDate" type="timestamp" column="UPD_DATE" />
+	<property name="bankBranch" type="string" column="BANK_BRANCH" length="4"/>
+	<property name="bankCode" type="string" column="BANK_CODE" length="3"/>
+</class>
+</hibernate-mapping>

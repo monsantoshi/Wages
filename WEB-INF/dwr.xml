@@ -1,0 +1,244 @@
+<!DOCTYPE dwr PUBLIC
+"-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+"http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+	<allow>
+		<create creator="spring" javascript="suMenuService">
+			<param name="beanName" value="suMenuService" />
+		</create>
+		<create creator="spring" javascript="SuUserOrganizationService">
+			<param name="beanName" value="suUserOrganizationService" />
+		</create>
+		<create creator="spring" javascript="SuUserService">
+			<param name="beanName" value="suUserService" />
+		</create>
+		<!-- =========================================Personal Evaluation========================================== -->
+		<create creator="spring" javascript="PeEmployeeScoreService">
+			<param name="beanName" value="peEmployeeScoreService" />
+		</create>
+		<create creator="spring" javascript="PeEmployeeScoreDetailService">
+			<param name="beanName" value="peEmployeeScoreDetailService" />
+		</create>
+		<create creator="spring" javascript="VPeEmployeeScoreService">
+			<param name="beanName" value="vpeEmployeeScoreService" />
+		</create>
+		<create creator="spring" javascript="VPeEmpScoreReportService">
+			<param name="beanName" value="vpeEmpScoreReportService" />
+		</create>
+		<create creator="spring" javascript="PeControlService">
+			<param name="beanName" value="peControlService" />
+		</create>
+		<create creator="spring" javascript="PeWgControlService">
+			<param name="beanName" value="peWgControlService" />
+		</create>
+		<create creator="spring" javascript="VPeWgEmployeeScoreService">
+			<param name="beanName" value="vpeWgEmployeeScoreService" />
+		</create>
+		<!-- =========================================Time Attendance========================================== -->
+		<create creator="spring" javascript="TaMonthEmpWorkService">
+			<param name="beanName" value="taMonthEmpWorkService" />
+		</create>
+		<create creator="spring" javascript="TaReportService">
+			<param name="beanName" value="taReportService" />
+		</create>
+		<create creator="spring" javascript="TaViewService">
+			<param name="beanName" value="taViewService" />
+		</create>
+		<create creator="spring" javascript="TaWgMonthEmpWorkService">
+			<param name="beanName" value="taWgMonthEmpWorkService" />
+		</create>
+		<create creator="spring" javascript="TaWgReportService">
+			<param name="beanName" value="taWgReportService" />
+		</create>
+		<!-- =========================================Pn Employee========================================== -->
+		<create creator="spring" javascript="PnEmployeeService">
+			<param name="beanName" value="pnEmployeeService" />
+		</create>
+		<create creator="spring" javascript="PrEmployeeService">
+			<param name="beanName" value="prEmployeeService" />
+		</create>
+		<create creator="spring" javascript="RwPremiumService">
+			<param name="beanName" value="rwPremiumService" />
+		</create>
+		<create creator="spring" javascript="RwPremiumReportService">
+			<param name="beanName" value="rwPremiumReportService" />
+		</create>
+		<create creator="spring" javascript="PrPeriodLineService">
+			<param name="beanName" value="prPeriodLineService" />
+		</create>
+		<create creator="spring" javascript="RwOvertimeService">
+			<param name="beanName" value="rwOvertimeService" />
+		</create>
+		<create creator="spring" javascript="RwHealthService">
+			<param name="beanName" value="rwHealthService" />
+		</create>
+		<create creator="spring" javascript="RwDangerService">
+			<param name="beanName" value="rwDangerService" />
+		</create>
+		<create creator="spring" javascript="RwModSalService">
+			<param name="beanName" value="rwModSalService" />
+		</create>
+		<create creator="spring" javascript="RwVinaiService">
+			<param name="beanName" value="rwVinaiService" />
+		</create>
+		<create creator="spring" javascript="RwVinai2Service">
+			<param name="beanName" value="rwVinai2Service" />
+		</create>
+		<create creator="spring" javascript="PrIncomeDeductService">
+			<param name="beanName" value="prIncomeDeductService" />
+		</create>
+		<create creator="spring" javascript="PrEmployeeTextService">
+			<param name="beanName" value="prEmployeeTextService" />
+		</create>
+		<create creator="spring" javascript="RwIncDecOtherService">
+			<param name="beanName" value="rwIncDecOtherService" />
+		</create>
+		<create creator="spring" javascript="SuOrganizeService">
+			<param name="beanName" value="suOrganizeService" />
+		</create>
+		<create creator="spring" javascript="VPnOrganizationSecurityService">
+			<param name="beanName" value="vPnOrganizationSecurityService" />
+		</create>
+		<create creator="spring" javascript="PrMonthlyLineService">
+			<param name="beanName" value="prMonthlyLineService" />
+		</create>
+		<create creator="spring" javascript="VRwVinaiService">
+			<param name="beanName" value="vRwVinaiService" />
+		</create>
+		<create creator="spring" javascript="WgPeriodLineService">
+			<param name="beanName" value="wgPeriodLineService" />
+		</create>
+		<create creator="spring" javascript="WgIncomeDeductService">
+			<param name="beanName" value="wgIncomeDeductService" />
+		</create>
+		<create creator="spring" javascript="WgPrWorkDayService">
+			<param name="beanName" value="wgPrWorkDayService" />
+		</create>
+		<create creator="spring" javascript="WgPrEmployeeService">
+			<param name="beanName" value="wgPrEmployeeService" />
+		</create>
+		<create creator="spring" javascript="WgPrEmployeeTextService">
+			<param name="beanName" value="wgPrEmployeeTextService" />
+		</create>
+		<create creator="spring" javascript="WgPrOvertimeService">
+			<param name="beanName" value="wgPrOvertimeService" />
+		</create>
+		<create creator="spring" javascript="WgDraftService">
+			<param name="beanName" value="wgDraftService" />
+		</create>
+		<create creator="spring" javascript="WgPrIncDecOtherService">
+			<param name="beanName" value="wgPrIncDecOtherService" />
+		</create>
+		<create creator="spring" javascript="WgEmployeeService">
+			<param name="beanName" value="wgEmployeeService" />
+		</create>
+		<create creator="spring" javascript="PeWgEmpScoreService">
+			<param name="beanName" value="peWgEmpScoreService" />
+		</create>
+		<create creator="spring" javascript="PeWgEmpScoreDetailService">
+			<param name="beanName" value="peWgEmpScoreDetailService" />
+		</create>
+		<create creator="spring" javascript="RwConfirmDataService">
+			<param name="beanName" value="rwConfirmDataService" />
+		</create>
+		<create creator="spring" javascript="WgConfirmDataService">
+			<param name="beanName" value="wgConfirmDataService" />
+		</create>
+		<create creator="spring" javascript="PnEmpImpService">
+			<param name="beanName" value="pnEmpImpService" />
+		</create>
+		<create creator="spring" javascript="PrEmpBankService">
+			<param name="beanName" value="prEmpBankService" />
+		</create>
+		<create creator="spring" javascript="WePnPromoteInstService">
+			<param name="beanName" value="wePnPromoteInstService" />
+		</create>
+		<create creator="spring" javascript="PnTextControlService">
+			<param name="beanName" value="pnTextControlService" />
+		</create>
+		<create creator="spring" javascript="PnEmployeeTextDetailService">
+			<param name="beanName" value="pnEmployeeTextDetailService" />
+		</create>
+		<create creator="spring" javascript="PnEmployeeTextService">
+			<param name="beanName" value="pnEmployeeTextService" />
+		</create>
+		<create creator="spring" javascript="WePnEmployeeTextService">
+			<param name="beanName" value="wePnEmployeeTextService" />
+		</create>
+		<create creator="spring" javascript="WePnEmpTextReportService">
+			<param name="beanName" value="wePnEmpTextReportService" />
+		</create>
+		<create creator="spring" javascript="WeWgEmployeeTextService">
+			<param name="beanName" value="weWgEmployeeTextService" />
+		</create>
+		<create creator="spring" javascript="WeWgEmpTextReportService">
+			<param name="beanName" value="weWgEmpTextReportService" />
+		</create>
+	
+		<create creator="spring" javascript="SrPvfEmpService">
+			<param name="beanName" value="srPvfEmpService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayPrEmployeeService">
+			<param name="beanName" value="feeWpayPrEmployeeService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayPrPeriodLineService">
+			<param name="beanName" value="feeWpayPrPeriodLineService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayPrEmployeeTextService">
+			<param name="beanName" value="feeWpayPrEmployeeTextService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwConfirmDataService">
+			<param name="beanName" value="feeWpayRwConfirmDataService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayConfirmDataService">
+			<param name="beanName" value="feeWpayConfirmDataService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayPnEmployeeService">
+			<param name="beanName" value="feeWpayPnEmployeeService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayPrIncomeDeductService">
+			<param name="beanName" value="feeWpayPrIncomeDeductService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayPrWorkDayService">
+			<param name="beanName" value="feeWpayPrWorkDayService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwHealthService">
+			<param name="beanName" value="feeWpayRwHealthService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwIncDecOtherService">
+			<param name="beanName" value="feeWpayRwIncDecOtherService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwOvertimeService">
+			<param name="beanName" value="feeWpayRwOvertimeService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwPremiumService">
+			<param name="beanName" value="feeWpayRwPremiumService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwPremiumReportService">
+			<param name="beanName" value="feeWpayRwPremiumReportService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwVinaiService">
+			<param name="beanName" value="feeWpayRwVinaiService" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwVinai2Service">
+			<param name="beanName" value="feeWpayRwVinai2Service" />
+		</create>
+		<create creator="spring" javascript="FeeWpayRwVinai3Service">
+			<param name="beanName" value="feeWpayRwVinai3Service" />
+		</create>
+		<create creator="spring" javascript="FeeWpayPrMonthlyLineService">
+			<param name="beanName" value="feeWpayPrMonthlyLineService" />
+		</create>
+		<create creator="spring" javascript="FeeContractDetailsService">
+			<param name="beanName" value="feeContractDetailsService" />
+		</create>
+		
+	
+
+		<convert converter="bean" match="com.ss.tp.dto.*" />
+		<convert converter="bean" match="com.ss.tp.model.*" />
+		<convert converter="bean" match="com.ss.tp.dao.*" />
+		<convert converter="bean" match="com.ss.tp.service.*" />
+		<convert converter="collection" match="java.util.Collection" />
+	</allow>
+</dwr>

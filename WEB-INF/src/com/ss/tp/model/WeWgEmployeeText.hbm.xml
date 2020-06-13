@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="WeWgEmployeeText" table="WE_WG_EMPLOYEE_TEXT">
+
+     <id name="keySeq"
+        type="long"
+        column="KEY_SEQ"
+        length="8" >
+        <generator class="increment" />
+    </id>
+	<property name="ouCode" type="string" column="OU_CODE" length="3" />
+	<property name="empCode" type="string" column="EMP_CODE" length="10"/>
+	<property name="statusDate" type="timestamp" column="STATUS_DATE"  />	
+	<property name="codeSeq" type="long" column="CODE_SEQ"  />
+	<property name="codeSeqAct" type="long" column="CODE_SEQ_ACT" />
+    <property name="preName" type="string" column="PRENAME" length="20" />
+	<property name="engName" type="string" column="ENG_NAME" length="100" />
+	<property name="engLastname" type="string" column="ENG_LASTNAME" length="100" />
+	<property name="pnTransfer" type="string" column="PNTRANSFER" length="1"  />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE"  />	
+</class>
+</hibernate-mapping>

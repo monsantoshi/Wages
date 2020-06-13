@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+<class name="PnEmployeeText" table="PN_EMPLOYEE_TEXT">
+	<composite-id name="pk" class="PnEmployeeTextPK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="evaYear" column="EVA_YEAR" type="long" />
+	            <key-property name="evaTime" column="EVA_TIME" type="long" />
+	            <key-property name="empCode" column="EMP_CODE" type="string" length="10"/>
+	</composite-id>
+	<property name="preName" type="string" column="PRE_NAME" length="50" />
+	<property name="firstName" type="string" column="FIRST_NAME" length="100" />
+	<property name="lastName" type="string" column="LAST_NAME" length="100" />
+	<property name="gworkCode" type="string" column="GWORK_CODE" length="10"/>
+	<property name="positionCode" type="string" column="POSITION_CODE" length="10" />
+	<property name="empStatus" type="string" column="EMP_STATUS"  />
+	<property name="codeSeq" type="long" column="CODE_SEQ"  />
+	<property name="codeSeqAct" type="long" column="CODE_SEQ_ACT" />
+	<property name="levelCode" type="string" column="LEVEL_CODE" length="10" />
+	<property name="pdate" type="timestamp" column="PDATE" />
+	<property name="account" type="string" column="ACCOUNT" length="10" />
+	<property name="adminCode" type="string" column="ADMIN_CODE" length="10" />
+	<property name="engName" type="string" column="ENG_NAME" length="100" />
+	<property name="engLastname" type="string" column="ENG_LASTNAME" length="100" />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE"  />
+	<property name="flagStatus" type="string" column="FLAG_STATUS" length="1"  />
+	<property name="statusDate" type="timestamp" column="STATUS_DATE"  />	
+	<many-to-one name="emp" class="PnEmployee" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="EMP_CODE" />
+    </many-to-one>
+	<set name="pnEmployeeTextDetail" lazy="true" inverse="true" cascade="all" order-by="EMP_CODE">
+		<key>
+			<column name="OU_CODE" not-null="true"/>
+			<column name="EVA_YEAR" not-null="true"/>	
+			<column name="EVA_TIME" not-null="true"/>	
+			<column name="EMP_CODE" not-null="true"/>				
+		</key>		
+		<one-to-many class="PnEmployeeTextDetail" />
+	</set>
+</class>
+</hibernate-mapping>

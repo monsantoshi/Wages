@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+
+<class  name="VWePnEmpText" table="V_WE_PN_EMP_TEXT">
+  <composite-id name="vwePnEmpTextPK" class="VWePnEmpTextPK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="empCode" column="EMP_CODE" type="string" length="10" />
+  </composite-id>    
+  <property name="codeSeq" column="CODE_SEQ" type="integer"  />
+  <property name="position" type ="string" column="POSITION" length="10"/>
+  <property name="fullName" type="string" column="FULL_NAME" length="250" />
+  <property name="orgCode" type="string" column="ORG_CODE" length="20" />
+  <property name="orgDesc" type="string" column="ORG_DESC" length="200" />
+  <property name="orgWorkCode" type="string" column="ORGWORK_CODE" length="20" />
+  <property name="orgWorkDesc" type="string" column="ORGWORK_DESC" length="200" />
+  <property name="secCode" type="string" column="SEC_CODE" length="20" />
+  <property name="secDesc" type="string" column="SEC_DESC" length="200" />
+  <property name="divCode" type="string" column="DIV_CODE" length="20" />
+  <property name="divDesc" type="string" column="DIV_DESC" length="200" />
+  <property name="divShort" type="string" column="DIV_SHORT" length="10" />
+  <property name="areaCode" type="string" column="AREA_CODE" length="20" />
+  <property name="areaDesc" type="string" column="AREA_DESC" length="200" />
+  <property name="adminCode" type="string" column="ADMIN_CODE" length="1"/>
+  <property name="pnLevel" column="LEVEL_CODE" type="integer"  />
+  <property name="engName" type ="string" column="ENG_NAME" length="30" />
+  <property name="engLastname" type="string" column="ENG_LASTNAME" length="30" />
+</class>
+</hibernate-mapping>

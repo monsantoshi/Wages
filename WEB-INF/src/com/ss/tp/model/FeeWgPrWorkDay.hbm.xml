@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="FeeWgPrWorkDay" table="FEE_WG_PR_WORK_DAY">
+
+     <id name="keySeq"
+        type="long"
+        column="KEY_SEQ"
+        length="8" >
+        <generator class="increment" />
+    </id>
+	<property name="ouCode" type="string" column="OU_CODE" length="3" />
+	<property name="yearPr" type="double" column="YEAR_PR" length="4" />
+	<property name="periodPr" type="double" column="PERIOD_PR" length="2" />
+	<property name="empCode" type="string" column="EMP_CODE" length="13"/>
+	
+	<property name="yearWork" type="double" column="YEAR_WORK" length="4"/>
+	<property name="periodWork" type="double" column="PERIOD_WORK" length="2"/>
+	<property name="codeSeq" type="long" column="CODE_SEQ" />
+	
+	
+	<property name="totalHour" type="double" column="TOTAL_HOUR" />
+	<property name="totalAmt" type="double" column="TOTAL_AMT" />
+	
+	
+	<property name="flagPr" type="string" column="FLAG_PR" length="1"/>
+	<property name="seqData" type="double" column="SEQ_DATA" length="3"/>
+	<property name="confirmFlag" type="string" column="CONFIRM_FLAG" length="1"/>
+	<property name="approveFlag" type="string" column="APPROVE_FLAG" length="1"/>
+	<property name="approveBy" type="string" column="APPROVE_BY" length="15"/>
+	<property name="approveDate" type="timestamp" column="APPROVE_DATE" />
+	<property name="approveClose" type="string" column="APPROVE_CLOSE"  length="1"/>
+	<property name="creBy" type="string" column="CRE_BY" length="15"/>
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15"/>
+	<property name="updDate" type="timestamp" column="UPD_DATE" />
+	
+</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE form-validation PUBLIC 
+    "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" 
+    "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+    <formset>
+		<form name="country">
+			<field property="countryID" depends="required">
+				<arg0 key="country.countryID" resource="false" />
+			</field>
+			<field property="countryName" depends="required">
+				<arg0 key="country.countryName" resource="false" />
+			</field>
+			<field property="tnsName" depends="required">
+				<arg0 key="country.tnsName" resource="false" />
+			</field>
+			<field property="workDirectory" depends="required">
+				<arg0 key="country.workDirectory" resource="false" />
+			</field>
+			<field property="primaryLanguage" depends="required">
+				<arg0 key="country.primaryLanguage" resource="false" />
+			</field>
+		</form>
+    </formset>
+</form-validation>

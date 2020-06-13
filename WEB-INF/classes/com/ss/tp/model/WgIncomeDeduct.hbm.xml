@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+<class name="WgIncomeDeduct" table="WG_INCOME_DEDUCT">
+	
+    <composite-id name="wgIncomeDeductPK" class="WgIncomeDeductPK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="groupCode" column="GROUP_CODE" type="string" length="1" />
+        <key-property name="incDecCode" column="INC_DEC_CODE" type="string" length="10" />
+    </composite-id>
+    
+    <property name="incDecName" type="string" column="INC_DEC_NAME" length="200" />    
+    <property name="decSeq" type="integer" column="DEC_SEQ" />
+    <property name="taxStatus" type="string" column="TAX_STATUS" length="1" />
+    <property name="ProvidentStatus" type="string" column="PROVIDENT_STATUS" length="1" />
+    <property name="tax5Status" type="string" column="TAX5_STATUS" length="1" />
+    <property name="accNo" type="string" column="ACC_NO" length="20" />
+    <property name="inactive" type="string" column="INACTIVE" length="1" />
+    <property name="creBy" type="string" column="CRE_BY" length="15" /> 
+    <property name="creDate" type="timestamp" column="CRE_DATE" /> 
+    <property name="updBy" type="string" column="UPD_BY" length="15" />  
+    <property name="updDate" type="timestamp" column="UPD_DATE" />
+    <property name="incNodel" type="string" column="INC_NODEL" length="1" />    
+    
+</class>
+</hibernate-mapping>

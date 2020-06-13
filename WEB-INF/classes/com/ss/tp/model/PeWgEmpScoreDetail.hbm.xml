@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PeWgEmpScoreDetail" table="PE_WG_EMP_SCORE_DETAIL">
+	 <composite-id name="pk" class="PeWgEmpScoreDetailPK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="evaYear" column="EVA_YEAR" type="long" />
+	            <key-property name="evaTime" column="EVA_TIME" type="long" />
+	            <key-property name="empCode" column="EMP_CODE" type="string" length="10"/>
+	            <key-property name="formCode" column="FORM_CODE" type="string" length="10"/>
+	            <key-property name="titleSeq" column="TITLE_SEQ" type="long"/>
+	 </composite-id>
+	<property name="evaScore" type="double" column="EVA_SCORE"  />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE"  />
+	
+	<many-to-one name="refPnEmployeeScore" class="PeWgEmpScore" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="EVA_YEAR" />
+                    <column name="EVA_TIME" />
+                    <column name="EMP_CODE" />
+    </many-to-one>
+	<many-to-one name="refPeEvaluationFormTitle" class="PeEvaluationFormTitle" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="FORM_CODE" />
+                    <column name="TITLE_SEQ" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

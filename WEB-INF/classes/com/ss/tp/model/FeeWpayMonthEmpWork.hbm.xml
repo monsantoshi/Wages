@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+<class name="FeeWpayMonthEmpWork" table="FEE_WPAY_MONTH_EMP_WORK">
+	<meta attribute="extends" inherit="false">BaseModel</meta>
+
+    <composite-id name="feeWpayMonthEmpWorkPK" class="FeeWpayMonthEmpWorkPK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="workYear" column="WORK_YEAR" type="integer" />
+        <key-property name="workMonth" column="WORK_MONTH" type="integer" />
+        <key-property name="empCode" column="EMP_CODE" type="string" length="10" />
+        <key-property name="workSeq" column="WORK_SEQ" type="integer" />
+    </composite-id>
+    
+    <property name="workCode" type="string" column="WORK_CODE" length="2" />    
+    <property name="totalDays" type="double" column="TOTAL_DAYS" />
+    <property name="totalTime" type="integer" column="TOTAL_TIME" />
+    <property name="pnTransfer" type="string" column="PN_TRANSFER" length="1" />   
+    <property name="creBy" type="string" column="CRE_BY" length="15" />
+    <property name="creDate" type="timestamp" column="CRE_DATE" />
+    <property name="updBy" type="string" column="UPD_BY" length="15" />
+    <property name="updDate" type="timestamp" column="UPD_DATE" />
+    <property name="note" type="string" column="NOTE" length="250" />   
+	
+	<many-to-one name="feeWpayStatusWork" class="FeeWpayStatusWork" update="false" insert="false"  lazy="false" outer-join="true">
+    	<column name="OU_CODE" />
+        <column name="WORK_CODE" />
+    </many-to-one>
+    
+    <many-to-one name="wgEmployee" class="WgEmployee" update="false" insert="false"  lazy="false">
+    	<column name="OU_CODE" />
+        <column name="EMP_CODE" />
+    </many-to-one>
+    
+</class>
+</hibernate-mapping>

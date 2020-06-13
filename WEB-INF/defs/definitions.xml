@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="login" page="/index.jsp" />
+	<!-- DEFAULT MAIN TEMPLATE -->
+	<definition name="template" page="/page/Template.jsp" />
+	<definition name="lovTemplate" page="/page/LovTemplate.jsp" />
+	<definition name="formTemplate" page="/page/FormTemplate.jsp" />
+	<definition name="panel" page="/page/BasePanel.jsp" />
+
+	<!-- Toolbar -->
+	<definition name="toolbar" page="/page/Toolbar.jsp" />
+	<definition name="toolbarBack" page="/page/ToolbarBack.jsp" />
+	<definition name="backButton" page="/page/BackButton.jsp" />
+
+	<!-- Component -->
+	<definition name="validatorScript" page="/script/validator.jsp" />
+
+	<!-- Button -->
+	<definition name="formFooter" page="/page/FormFooter.jsp" />
+	
+	<!-- Result -->
+	<definition name="result" page="/page/Result.jsp" />
+
+	<!-- Home -->
+	<definition name="home" extends="template">
+		<put name="content" value="/page/Home.jsp" type="page"/>
+	</definition>
+	
+	<!-- =========================================Time 
+
+Attendance========================================== -->
+	
+	<!--WAGES TO WEB-->
+	 <definition name="CTWPAYMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT001.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYDL001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYDL001.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYIN001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYIN001.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYUP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYUP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT002" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT002.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT003" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT004" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT004.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT005" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT005.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT006" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT006.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT007" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT007.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT008" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT008.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT009" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT009.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT010" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT011" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT012" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT012.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT013" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT013.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYMT014" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYMT014.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYIN003" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYIN003.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYIN004" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYIN004.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYIN009" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYIN009.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYIN010" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYIN010.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYIN014" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYIN014.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYUP003" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYUP003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYUP004" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYUP004.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYUP009" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYUP009.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYUP010" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYUP010.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYUP014" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYUP014.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYQY001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYQY001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYQY001DT01" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYQY001DT01.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYQY001DT02" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYQY001DT02.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYRP003" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP003.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYRP004" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP004.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYRP005" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP005.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYRP006" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP006.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYRP008" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP008.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYRP009" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP009.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYRP010" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYRP011" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYRP201" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP201.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWPAYRP014" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP014.jsp" type="page"/>
+	</definition>
+	<!-- FEE WG PAY WAGES -->
+	 <definition name="CTWGPAYMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT001.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYDL001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYDL001.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYIN001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYIN001.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYUP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYUP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT002" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT002.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT003" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT0041" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT0041.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT008" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT008.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT010" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT011" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT012" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT012.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYMT013" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYMT013.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYIN003" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYIN003.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYIN0041" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYIN0041.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYIN010" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYIN010.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYUP003" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYUP003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYUP0041" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYUP0041.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYUP010" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYUP010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYQY001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYQY001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYQY001DT01" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYQY001DT01.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYQY001DT02" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYQY001DT02.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYRP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYRP003" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYRP003.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYRP004" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYRP004.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYRP008" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYRP008.jsp" type="page"/>
+	</definition>
+	 <definition name="CTWGPAYRP010" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYRP010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYRP011" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYRP011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYRP201" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYRP201.jsp" type="page"/>
+	</definition>
+	<!-- FEE WPAY APPROVE -->
+	<definition name="CTWPAYAPMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT001_N" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT001_N.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT003" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT005" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT005.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT006" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT006.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT008" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT008.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT009" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT009.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT010" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT011" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT012" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT012.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPMT013" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPMT013.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRPMT003" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRPMT003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRPMT005" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRPMT005.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRPMT006" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRPMT006.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRPMT008" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRPMT008.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRPMT010" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRPMT010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRPMT011" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRPMT011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRPMT201" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRPMT201.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTWPAYPCMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYPCMT001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYGL001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYGL001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYGLRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYGLRP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYINBRK001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYINBRK001.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTWPAYBRKRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYBRKRP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYBRSRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYBRSRP001.jsp" type="page"/>
+	</definition>
+	
+	
+	<!-- FEE WG PAY APPROVE -->
+	<definition name="CTWGPAYAPMT003" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPMT003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPMT008" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPMT008.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPMT009" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPMT009.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPMT010" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPMT010.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPMT011" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPMT011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPMT012" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPMT012.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPMT013" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPMT013.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPRP003" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPRP008" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP008.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPRP010" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP010.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTWGPAYAPRP011" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP011.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPRP201" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP201.jsp" type="page"/>
+	</definition>
+	<!-- FEE WG PAY CONTACT PN  -->
+	<definition name="CTWGEMPMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGEMPMT001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGEMPUP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGEMPUP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGEMPIN001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGEMPIN001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGCONMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGCONMT001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGCONUP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGCONUP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGCONIN001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGCONIN001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGEMPCONMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGEMPCONMT001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYOR003" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYOR003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYOR004" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYOR004.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYOR003" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYOR003.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYOR004" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYOR004.jsp" type="page"/>
+	</definition>
+	
+	
+	<definition name="CTWGPAYPCMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYPCMT001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYGL001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYGL001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYGLRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYGLRP001.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTWPAYKTBMT001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYKTBMT001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYKTBRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYKTBRP001.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTWPAYAPRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRP002" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP002.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRP013" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP013.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRP014" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP014.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRP014_K" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP014_K.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRP014_S" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP014_S.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRP015" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP015.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYAPRP016" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP016.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTWPAYAPRP017" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYAPRP017.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTWGPAYAPRP001" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP001.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPRP002" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP002.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPRP013" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP013.jsp" type="page"/>
+	</definition>
+	<definition name="CTWGPAYAPRP014" extends="template">
+		<put name="content" value="/page/WGWages/CTWGPAYAPRP014.jsp" type="page"/>
+	</definition>
+	<definition name="CTWPAYRP012" extends="template">
+		<put name="content" value="/page/WGWages/CTWPAYRP012.jsp" type="page"/>
+	</definition>
+	
+	<definition name="CTPRRP013" extends="template">
+		<put name="content" value="/page/WGWages/CTPRRP013.jsp" type="page"/>
+	</definition>
+	
+	
+</tiles-definitions>

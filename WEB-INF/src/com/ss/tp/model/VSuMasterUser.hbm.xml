@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VSuMasterUser" table="V_SU_MASTER_USER">
+
+    <composite-id name="pk" class="VSuMasterUserPK">
+         <key-property name="year" type="double" column="YEAR" length="4" />
+		 <key-property name="period" type="double" column="PERIOD" length="2" />
+		 <key-property name="userId" type="string" column="USER_ID" length="15" />
+	     <key-property name="masterUser" type="string" column="MASTER_USER" length="15" />
+  </composite-id>  
+    <property name="zipCode" type="string" column="ZIP_CODE" length="5" />
+   	<property name="flag1" type="integer" column="FLAG1" length="1" />
+	<property name="flag2" type="integer" column="FLAG2" length="1" />
+	<property name="flag3" type="integer" column="FLAG3" length="1" />
+	<property name="flag4" type="integer" column="FLAG4" length="1" />
+	
+	
+</class>
+</hibernate-mapping>

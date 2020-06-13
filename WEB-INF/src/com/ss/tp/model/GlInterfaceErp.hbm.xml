@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="GlInterfaceErp" table="GL_INTERFACE_ERP">
+     <id name="keySeq"
+        type="long"
+        column="KEY_SEQ"
+        length="8" >
+        <generator class="increment" />
+    </id>
+    <property name="accountingDate" type="timestamp" column="ACCOUNTING_DATE" />
+    <property name="dateCreated" type="timestamp" column="DATE_CREATED" />
+    <property name="userJeSourceName" type="string" column="USER_JE_SOURCE_NAME" length="25" />
+   	<property name="segment1" type="string" column="SEGMENT1" length="25" />
+   	<property name="segment2" type="string" column="SEGMENT2" length="25" />
+   	<property name="segment3" type="string" column="SEGMENT3" length="25" />
+   	<property name="segment4" type="string" column="SEGMENT4" length="25" />
+   	<property name="segment5" type="string" column="SEGMENT5" length="25" />
+   	<property name="segment6" type="string" column="SEGMENT6" length="25" />
+	<property name="enteredDr" type="double" column="ENTERED_DR" length="12" />
+	<property name="enteredCr" type="double" column="ENTERED_CR" length="12" />	
+	<property name="reference4" type="string" column="REFERENCE4" length="100" />
+</class>
+</hibernate-mapping>

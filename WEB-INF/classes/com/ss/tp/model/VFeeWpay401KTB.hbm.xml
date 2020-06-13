@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VFeeWpay401KTB" table="V_FEE_WPAY_401_KTB">
+
+     <id name="keySeq"
+        type="integer"
+        column="KEY_SEQ"
+        length="8" >
+    	<generator class="assigned" />
+    </id>
+    <property name="yearSum" type="double" column="YEAR_SUM" length="4" />
+	<property name="periodSum" type="double" column="PERIOD_SUM" length="2" />
+	<property name="ouCodeSum" type="string" column="OU_CODE_SUM" length="3" />
+	<property name="levelGroupSum" type="string" column="LEVEL_GROUP_SUM" length="1" />
+	<property name="groupCodeSum" type="string" column="GROUP_CODE_SUM" length="1" />
+	<property name="accNoSum" type="string" column="ACC_NO_SUM" length="10" />
+	<property name="accNameSum" type="string" column="ACC_NAME_SUM" length="50" />
+	<property name="empAmountSum" type="double" column="EMP_AMOUNT_SUM" />	
+	<property name="amountSum" type="double" column="AMOUNT_SUM" />
+	<property name="incDecCodeSum" type="string" column="INC_DEC_CODE_SUM" length="10" />
+	<property name="incDecSubCodeSum" type="string" column="INC_DEC_SUB_CODE_SUM" length="10" />
+	<property name="incDecNameSum" type="string" column="INC_DEC_NAME_SUM" length="50" />
+	
+</class>
+</hibernate-mapping>

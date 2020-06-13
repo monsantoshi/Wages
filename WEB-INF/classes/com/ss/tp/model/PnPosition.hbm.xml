@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PnPosition" table="PN_POSITION">
+	 <composite-id name="pk" class="PnPositionPK">
+        <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+        <key-property name="gworkCode" column="GWORK_CODE" type="string" length="10"/>
+        <key-property name="positionCode" column="POSITION_CODE" type="string" length="10"/>
+	 </composite-id>
+	<property name="positionShort" type="string" column="POSITION_SHORT" length="200" />
+</class>
+</hibernate-mapping>

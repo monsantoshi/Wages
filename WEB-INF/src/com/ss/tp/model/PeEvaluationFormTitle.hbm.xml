@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+<class name="PeEvaluationFormTitle" table="PE_EVALUATION_FORM_TITLE">
+	 <composite-id name="pk" class="PeEvaluationFormTitlePK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="formCode" column="FORM_CODE" type="string" length="10"/>
+	            <key-property name="titleSeq" column="TITLE_SEQ" type="long" />
+	 </composite-id>
+	<property name="titleCode" type="string" column="TITLE_CODE"  length="10" />
+	<property name="formDesc" type="string" column="FORM_DESC"   length="200"/>
+	<property name="titleScore" type="double" column="TITLE_SCORE"  />
+	<property name="formScore" type="double" column="FORM_SCORE"  />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE"  />
+	<property name="formType" type="string" column="FORM_TYPE"  length="1" />
+	<property name="formDefault" type="string" column="FORM_DEFAULT"   length="1"/>	
+
+<many-to-one name="refPeEvaluationTitle" class="PeEvaluationTitle" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="TITLE_CODE" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

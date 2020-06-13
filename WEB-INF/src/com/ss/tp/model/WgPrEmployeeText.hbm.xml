@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">    
+    
+<hibernate-mapping package="com.ss.tp.model">
+<class name="WgPrEmployeeText" table="WG_PR_EMPLOYEE_TEXT">
+	
+	<id name="keySeq"
+        type="long"
+        column="KEY_SEQ"
+        length="8" >
+        <generator class="increment" />
+    </id>
+      
+    <property name="ouCode" column="OU_CODE" type="string" length="3" />
+    <property name="year" column="YEAR" type="integer" />
+    <property name="period" column="PERIOD" type="integer" />
+    <property name="empCode" type="string" column="EMP_CODE" length="10" />   
+    <property name="codeSeqWork" type="integer" column="CODE_SEQ_WORK" />
+    <property name="taxId" type="string" column="TAX_ID" length="30" />  
+    <property name="marriedStatus" type="string" column="MARRIED_STATUS" length="1" />
+    <property name="payStatus" type="string" column="PAY_STATUS" length="1" />
+    <property name="bankId" type="string" column="BANK_ID" length="30" />
+    <property name="costChild" type="integer" column="COST_CHILD" />
+    <property name="childStudy" type="integer" column="CHILD_STUDY" />
+    <property name="childNoStudy" type="integer" column="CHILD_NO_STUDY " />
+    <property name="costLife" type="double" column="COSTLIFE" />
+    <property name="debtLife" type="double" column="DEBTLIFE" /> 
+    <property name="debtLoan" type="double" column="DEBTLOAN" /> 
+    <property name="donate" type="double" column="DONATE" /> 
+    <property name="other" type="double" column="OTHER" />  
+    <property name="incomeTax" type="double" column="INCOMETAX" /> 
+    <property name="oldSalary" type="double" column="OLD_SALARY" /> 
+    <property name="newSalary" type="double" column="NEW_SALARY" /> 
+    <property name="adjOldsal" type="double" column="ADJ_OLDSAL" /> 
+    <property name="adjNewsal" type="double" column="ADJ_NEWSAL" /> 
+    <property name="flagFather" type="string" column="FLAG_FATHER" length="1" />
+    <property name="flagMother" type="string" column="FLAG_MOTHER" length="1" />
+    <property name="flagFatherSpouse" type="string" column="FLAG_FATHER_SPOUSE" length="1" />
+    <property name="flagMotherSpouse" type="string" column="FLAG_MOTHER_SPOUSE" length="1" />
+    <property name="rmf" type="double" column="RMF" /> 
+    <property name="ltf" type="double" column="LTF" /> 
+    <property name="pensionFund" type="double" column="PENSION_FUND" /> 
+    <property name="deductAmt" type="double" column="DEDUCT_AMT" /> 
+    <property name="teacherFund" type="double" column="TEACHER_FUND" /> 
+    <property name="compensateLabour" type="double" column="COMPENSATE_LABOUR" /> 
+    <property name="overage" type="double" column="OVERAGE" /> 
+    <property name="overageSpouse" type="double" column="OVERAGE_SPOUSE" /> 
+    <property name="gundanFlag" type="string" column="GUNDAN_FLAG" length="1" />
+    <property name="gundanAmt" type="double" column="GUNDAN_AMT" /> 
+    <property name="flagPr" type="string" column="FLAG_PR" length="1" />
+    <property name="flagStatus" type="string" column="FLAG_STATUS" length="1" />
+    <property name="confirmFlag" type="string" column="CONFIRM_FLAG" length="1" />
+    <property name="seqData" type="integer" column="SEQ_DATA" />
+    <property name="creBy" type="string" column="CRE_BY" length="15" />  
+    <property name="creDate" type="timestamp" column="CRE_DATE" />  
+    <property name="updBy" type="string" column="UPD_BY" length="15" />  
+    <property name="updDate" type="timestamp" column="UPD_DATE" />
+        
+</class>
+</hibernate-mapping>

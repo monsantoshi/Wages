@@ -1,0 +1,45 @@
+ CAPTION.TABLEBULE
+  {
+     background-color:#003366;
+     color:#FFFFCC;
+     border-style:groove;
+     border-width:1px;
+     border-color:black;
+  }
+
+  TABLE.TABLEBULE
+  { 
+    
+     font-size:10pt;
+     background-color:#808080;
+     width:500px;
+     border-style:solid;
+ 
+     border-width:2px;
+  }
+
+  TH.TABLEBULE
+  {
+     font-size:10pt;
+     background-color:#003366;
+     color:#FFFFCC;
+  }
+
+
+  TR.TABLEBULE2
+  { 
+  	font-size:9pt;
+     background-color:#3399CC;
+     color:#FFFFFF;
+  }
+
+  TD.TABLEBULE2
+  {  
+     font-size:9pt;
+     background-color:#3399CC;
+     color:#000000;
+     border-style:solid;
+     border-width:1px;
+     text-align:center;
+  }
+

@@ -1,0 +1,328 @@
+/****************************************************************
+                               *   style  -  date  *
+ ****************************************************************/
+ /*--------Input-------*/
+.dateInputAdd   {
+	text-align: center; 
+ }
+ .dateInputEdit   {
+	text-align: center; 
+ }
+ .dateInputRemove   {
+	background:#EABFFF; 
+	border:none;
+	border-bottom: solid 1;
+	text-align: center; 
+ }
+ .dateInputView   {
+	background:#EABFFF; 
+	border:none;
+	border-bottom: solid 1;
+	text-align: center; 
+ }
+ .dateInputNormal   {
+    text-align: center; 
+ }
+
+ /*--------display-------*/
+.dateDisplayAdd   {
+    background: #DCDCDC;
+	text-align: center; 
+ }
+ .dateDisplayEdit   {
+    background: #DCDCDC;
+	text-align: center; 
+ }
+ .dateDisplayRemove   {
+    background: #DCDCDC;
+   	border:none;
+	border-bottom: solid 1;
+	text-align: center; 
+ }
+ .dateDisplayView   {
+    background: #DCDCDC;
+	border:none;
+	border-bottom: solid 1;
+	text-align: center; 
+ }
+ .dateDisplayNormal   {
+    background: #DCDCDC;
+    text-align: center; 
+ }
+
+  /*--------key-------*/
+.dateKeyAdd   {
+	text-align: center; 
+ }
+ .dateKeyEdit   {
+	text-align: center; 
+ }
+ .dateKeyRemove   {
+	background:#EABFFF;
+	border:none;
+	border-bottom: solid 1; 
+	text-align: center; 
+ }
+ .dateKeyView   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+    vertical-align: middle; text-align: center; 
+ }
+ .dateKeyNormal   {
+	border-style:none;
+    text-align: center; 
+ }
+
+/****************************************************************
+                               *   style  -  number  *
+ ****************************************************************/
+ /*--------Input-------*/
+.numberInputAdd   {
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberInputEdit   {
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberInputRemove   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberInputView   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberInputNormal   {
+	border-style:none;
+    text-align: right; 
+ }
+
+  /*--------display-------*/
+.numberDisplayAdd   {
+    background: #DCDCDC;
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberDisplayEdit   {
+    background: #DCDCDC;
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberDisplayRemove   {
+    background: #DCDCDC;
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberDisplayView   {
+    background: #DCDCDC;
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberDisplayNormal   {
+	background: #DCDCDC;
+    text-align: right; 
+ }
+
+   /*--------key-------*/
+.numberKeyAdd   {
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberKeyEdit   {
+	border-style:none;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberKeyRemove   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberKeyView   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+    vertical-align: middle; text-align: right; 
+ }
+ .numberKeyNormal   {
+    text-align: right; 
+ }
+
+ /****************************************************************
+                               *   style  -  text  *
+ ****************************************************************/
+ /*--------Input-------*/
+.textInputAdd   {
+	text-align: left; 
+ }
+ .textInputEdit   {
+	text-align: left; 
+ }
+ .textInputRemove   {
+	background:#EABFFF; 
+	border:none;
+	border-bottom: solid 1;
+	text-align: left; 
+ }
+ .textInputView   {
+	background:#EABFFF; 
+	border:none;
+	border-bottom: solid 1;
+	text-align: left; 
+ }
+ .textInputNormal   {
+    text-align: left; 
+ }
+
+  /*--------display-------*/
+.textDisplayAdd   {
+    background: #DCDCDC;
+	text-align: left; 
+ }
+ .textDisplayEdit   {
+    background: #DCDCDC;
+	text-align: left; 
+ }
+ .textDisplayRemove   {
+    background: #DCDCDC;
+   	border:none;
+	border-bottom: solid 1;
+	text-align: left; 
+ }
+ .textDisplayView   {
+    background: #DCDCDC;
+   	border:none;
+	border-bottom: solid 1;
+	text-align: left; 
+ }
+ .textDisplayNormal   {
+    background: #DCDCDC;
+    text-align: left; 
+ }
+
+   /*--------key-------*/
+.textKeyAdd   {
+	text-align: left; 
+ }
+ .textKeyEdit   {
+    border:none;
+	text-align: left; 
+ }
+ .textKeyRemove   {
+	background:#EABFFF; 
+	border:none;
+	border-bottom: solid 1;
+	text-align: left; 
+ }
+ .textKeyView   {
+	background:#EABFFF; 
+	border:none;
+	border-bottom: solid 1;
+	text-align: left; 
+ }
+ .textKeyNormal   {
+    text-align: left; 
+ }
+
+  /****************************************************************
+                               *   style  -  code  *
+ ****************************************************************/
+ /*--------Input-------*/
+.codeInputAdd   {
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeInputEdit   {
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeInputRemove   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeInputView   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeInputNormal   {
+	border-style:none;
+	font-weight:bold;
+    text-align: center; 
+ }
+
+  /*--------display-------*/
+.codeDisplayAdd   {
+    background: #DCDCDC;
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeDisplayEdit   {
+    background: #DCDCDC;
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeDisplayRemove   {
+    background: #DCDCDC;
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeDisplayView   {
+    background: #DCDCDC;
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeDisplayNormal   {
+    background: #DCDCDC;
+	border-style:none;
+	font-weight:bold;
+    text-align: center; 
+ }
+
+    /*--------key-------*/
+.codeKeyAdd   {
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeKeyEdit   {
+	border-style:none;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeKeyRemove   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeKeyView   {
+	background:#EABFFF; 
+	border-top-style:none;border-left-style:none;
+	border-right-style:none;border-bottom-style:groove;
+	font-weight:bold;
+    vertical-align: middle; text-align: center; 
+ }
+ .codeKeyNormal   {
+	border-style:none;
+	font-weight:bold;
+    text-align: center; 
+ }

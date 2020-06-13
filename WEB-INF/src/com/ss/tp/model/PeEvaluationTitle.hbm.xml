@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PeEvaluationTitle" table="PE_EVALUATION_TITLE">
+	 <composite-id name="pk" class="PeEvaluationTitlePK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="titleCode" column="TITLE_CODE" type="string" length="10"/>
+	 </composite-id>
+	<property name="titleDesc" type="string" column="TITLE_DESC"  length="200" />
+	<property name="inactive" type="string" column="INACTIVE" length="1" />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE"  />
+    
+</class>
+</hibernate-mapping>

@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PeWgEmpScore" table="PE_WG_EMP_SCORE">
+	 <composite-id name="pk" class="PeWgEmpScorePK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="evaYear" column="EVA_YEAR" type="long" />
+	            <key-property name="evaTime" column="EVA_TIME" type="long" />
+	            <key-property name="empCode" column="EMP_CODE" type="string" length="10"/>
+	 </composite-id>
+	<property name="evaTotal" type="double" column="EVA_TOTAL"  />
+	<property name="scoreAdjust" type="double" column="SCORE_ADJUST"  />
+	<property name="scoreNet" type="double" column="SCORE_NET"  />	 
+	<property name="pnTransfer" type="string" column="PN_TRANSFER" length="1" />
+	<property name="evaEmp1" type="string" column="EVA_EMP_1" length="10" />
+	<property name="evaEmp2" type="string" column="EVA_EMP_2" length="10" />
+	<property name="evaEmp3" type="string" column="EVA_EMP_3" length="10" />
+	<property name="creBy" type="string" column="CRE_BY" length="15" />
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15" />
+	<property name="updDate" type="timestamp" column="UPD_DATE"  />
+	<property name="statusDate" type="timestamp" column="STATUS_DATE"  />
+	
+	<many-to-one name="emp" class="WgEmployee" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="EMP_CODE" />
+    </many-to-one>
+    	
+	<many-to-one name="qevaEmp1" class="PnEmployee" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="EVA_EMP_1" />
+    </many-to-one>
+    
+ 	<many-to-one name="qevaEmp2" class="PnEmployee" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="EVA_EMP_2" />
+    </many-to-one>
+    
+	<many-to-one name="qevaEmp3" class="PnEmployee" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="EVA_EMP_3" />
+    </many-to-one>
+    
+    <set name="peWgEmpScoreyDtl" lazy="true" inverse="true" cascade="all" order-by="EMP_CODE">
+		<key>
+			<column name="OU_CODE" not-null="true"/>
+			<column name="EVA_YEAR" not-null="true"/>	
+			<column name="EVA_TIME" not-null="true"/>	
+			<column name="EMP_CODE" not-null="true"/>				
+		</key>		
+		<one-to-many class="PeWgEmpScoreDetail" />
+	</set>
+</class>
+</hibernate-mapping>

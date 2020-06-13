@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VFeeWpayPrBreakPay" table="V_FEE_WPAY_PR_BREAK_PAY">
+	 <composite-id name="pk" class="VFeeWpayPrBreakPayPK">
+	 	<key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	    <key-property name="empCode" column="EMP_CODE" type="string"/>
+	    <key-property name="year" column="YEAR" type="double"/>
+	    <key-property name="period" column="PERIOD" type="double"/>
+	 </composite-id>
+	<property name="subOrg" type="double" column="SUB_ORG"  />	 
+	<property name="subName" type="string" column="SUB_NAME"  />
+	<property name="deptSeq" type="double" column="DEPT_SEQ"  />	 
+	<property name="divSeq" type="double" column="DIV_SEQ"  />	 
+	<property name="divCode" type="string" column="DIV_CODE"  />	 
+	<property name="divName" type="string" column="DIV_NAME"  />
+	<property name="areaSeq" type="double" column="AREA_SEQ"  />	 
+	<property name="areaCode" type="string" column="AREA_CODE"  />	 
+	<property name="areaDesc" type="string" column="AREA_DESC"  />
+	<property name="secSeq" type="double" column="SEC_SEQ"  />	 
+	<property name="secCode" type="string" column="SEC_CODE"  />	 
+	<property name="secDesc" type="string" column="SEC_DESC"  />
+	<property name="orgDesc" type="string" column="ORG_DESC"  />
+	<property name="empName" type="string" column="EMP_NAME"  />
+	<property name="bankId" type="string" column="BANK_ID" length="10" />
+	<property name="breakAmt" type="double" column="BREAK_AMT"  />	 
+	<property name="newBankId" type="string" column="NEW_BANK_ID" length="10" />
+	<property name="bankCode" type="string" column="BANK_CODE" length="3" />
+	<property name="salary" type="double" column="SALARY"  />	 
+	<property name="inactive" type="string" column="INACTIVE"  />
+	
+
+	 
+</class>
+</hibernate-mapping>

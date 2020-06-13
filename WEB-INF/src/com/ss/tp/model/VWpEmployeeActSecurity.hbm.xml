@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VWpEmployeeActSecurity" table="V_WP_EMPLOYEE_ACT_SECURITY">
+	 <composite-id name="pk" class="VWpEmployeeActSecurityPK">
+	 	<key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	    <key-property name="userId" column="USER_ID" type="string" length="15"/>
+	    <key-property name="empCode" column="EMP_CODE" type="string" length="10" />     
+	    <key-property name="codeSeq" column="CODE_SEQ" type="integer" />    
+	 </composite-id>
+</class>
+</hibernate-mapping>

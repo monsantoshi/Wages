@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="PnEmpMove" table="PN_EMP_MOVE">
+	<composite-id name="pk" class="PnEmpMovePK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="moveNo" column="MOVE_NO" type="string" length="10"/>
+	 </composite-id>
+        <property name="ouCode" type="string" column="OU_CODE" length="10" />
+	<property name="moveStatus" type="string" column="MOVE_STATUS" length="50" />
+	<property name="year" type="string" column="YEAR" length="4" />
+	<property name="empCode" type="string" column="EMP_CODE" length="10" />
+	<property name="dateSubmit" type="timestamp" column="DATE_SUBMIT" />
+	<property name="rentCost" type="string" column="RENT_COST" length="10" />
+	<property name="moveCost" type="string" column="MOVE_COST" length="10" />
+	<property name="dateLastmove" type="timestamp" column="DATE_LAST_MOVE" />
+	<property name="moveWait" type="string" column="MOVE_WAIT" length="1" />
+	<property name="moveCost" type="string" column="MOVE_COST" length="10" />
+	<property name="kindManreplace" type="string" column="KIND_MAN_REPLACE" length="10" />
+	<property name="eduReplace" type="string" column="EDU_REPLACE" length="30" />
+	<property name="lastInst" type="string" column="LAST_INST" length="15" />
+	<property name="eduFirst" type="string" column="EDU_FIRST" length="30" />
+	<property name="eduLast" type="string" column="EDU_LAST" length="30" />
+	<property name="creBy" type="string" column="CRE_BY" length="15"/>
+	<property name="creDate" type="timestamp" column="CRE_DATE" />
+	<property name="updBy" type="string" column="UPD_BY" length="15"/>
+	<property name="updDate" type="timestamp" column="UPD_DATE" />
+	
+		
+	<many-to-one name="emp" class="PnEmployee" update="false" insert="false"  lazy="false">
+                    <column name="OU_CODE" />
+                    <column name="EMP_CODE" />
+       </many-to-one>
+  	
+        <set name="pnEmpSetPlace" lazy="true" inverse="true" cascade="all" order-by="MOVE_NO">
+		<key>
+			<column name="OU_CODE" not-null="true"/>
+			<column name="MOVE_NO" not-null="true"/>				
+		</key>		
+		<one-to-many class="PnEmpSetPlace" />
+	</set>
+    
+	</class>
+</hibernate-mapping>

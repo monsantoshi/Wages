@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VFeeWgRwVinai" table="V_FEE_WG_RW_VINAI">
+	 <composite-id name="pk" class="VFeeWgRwVinaiPK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="yearPr" column="YEAR_PR" type="long" />
+	            <key-property name="periodPr" column="PERIOD_PR" type="long" />
+	            <key-property name="empCode" column="EMP_CODE" type="string" length="10"/>
+	 </composite-id>
+	<property name="empName" type="string" column="EMP_NAME"  />
+	<property name="orgDesc" type="string" column="ORG_DESC"  />
+	<property name="decSal" type="double" column="DEC_SAL"  />	 
+	<property name="cutSal" type="string" column="CUT_SAL" />
+	<property name="cutSalPercent" type="double" column="CUT_SAL_PERCENT" />
+	<property name="newSalary" type="double" column="NEW_SALARY" />
+	<property name="absYear1" type="string" column="ABS_YEAR1" length="10" />
+	<property name="absDay1" type="double" column="ABS_DAY1" />
+	<property name="absYear2" type="string" column="ABS_YEAR2" length="10" />
+	<property name="absDay2" type="double" column="ABS_DAY2" />
+	<property name="startDateQut" type="timestamp" column="START_DATE_QUT" />
+	<property name="endDateQut" type="timestamp" column="END_DATE_QUT" />
+	<property name="totalDay" type="double" column="TOTAL_DAY"  />
+	<property name="periodWork" type="string" column="PERIOD_WORK"  />
+	<property name="decDay" type="double" column="DEC_DAY"  />
+	<property name="flagPr" type="string" column="FLAG_PR"  length="1"/>	
+	<property name="decSalMonth" type="double" column="DEC_SAL_MONTH"  />	
+	<property name="cutSalMonth" type="double" column="CUT_SAL_MONTH" length="5"/>
+	<property name="approveFlag" type="string" column="APPROVE_FLAG" length="1" />
+		
+	
+</class>
+</hibernate-mapping>

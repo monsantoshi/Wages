@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="VFeeWpayUserSFlag" table="V_FEE_WPAY_USER_SFLAG">
+	 <composite-id name="pk" class="VFeeWpayUserSFlagPK">
+	            <key-property name="ouCode" column="OU_CODE" type="string" length="3" />
+	            <key-property name="year" column="YEAR" type="long" />
+	            <key-property name="period" column="PERIOD" type="long" />
+	            <key-property name="userId" column="USER_ID" type="string" length="10"/>
+	 </composite-id>
+	<property name="sumFlag" type="double" column="SFLAG"  />
+	
+	
+	
+		
+	
+</class>
+</hibernate-mapping>

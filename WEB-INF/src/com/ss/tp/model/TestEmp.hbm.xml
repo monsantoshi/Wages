@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ss.tp.model">
+
+<class name="TestEmp" table="TEST_EMP">
+
+    <id name="empCode"
+        type="string"
+        column="EMP_CODE"
+        length="10" >
+        <generator class="assigned" />
+    </id>
+	<property name="empName" type="string" column="EMP_NAME" length="50" />
+	<property name="deptCode" type="string" column="DEPT_CODE" length="5" />
+	
+</class>
+</hibernate-mapping>
