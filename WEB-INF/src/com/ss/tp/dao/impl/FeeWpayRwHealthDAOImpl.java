@@ -720,6 +720,7 @@ public class FeeWpayRwHealthDAOImpl extends HibernateDaoSupport implements
 		hql.append(" pnEmp.refDbPreSuff.prefixName, ");
 		hql.append(" pnEmp.firstName, ");
 		hql.append(" pnEmp.lastName, ");
+		hql.append(" pnEmp.salary, ");
 		hql.append(" rwInc.yearWork, ");
 		hql.append(" rwInc.periodWork, ");
 		hql.append(" rwInc.totalHour, ");
@@ -753,17 +754,19 @@ public class FeeWpayRwHealthDAOImpl extends HibernateDaoSupport implements
 			String prefixName = (String) r[3];
 			String firstName = (String) r[4];
 			String lastName = (String) r[5];
-			Double yearWork = (Double) r[6];
-			Double periodWork = (Double) r[7];
-			Double totalHour = (Double) r[8];
-			Double seqData = (Double) r[9];
-			Long codeSeq = (Long) r[10];
+			Integer salary = (Integer) r[6];
+			Double yearWork = (Double) r[7];
+			Double periodWork = (Double) r[8];
+			Double totalHour = (Double) r[9];
+			Double seqData = (Double) r[10];
+			Long codeSeq = (Long) r[11];
 
 			RwHealthEmployeeVO ret = new RwHealthEmployeeVO();
 			ret.setKeySeq(keySeq);
 			ret.setFlagPr(flagPr);
 			ret.setEmpCode(empCode);
 			ret.setName(prefixName + " " + firstName + " " + lastName);
+			ret.setSalary(salary);
 			ret.setYearWork(yearWork);
 			ret.setPeriodWork(periodWork);
 			ret.setTotalHour(totalHour);

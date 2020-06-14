@@ -434,7 +434,8 @@
 		function(data) { return writeSelect("flagPr",data.flagPr,data.keySeq);},
 		function(data) { return writeTextID("empCode",data.empCode,10,"left",data.keySeq);},
 		function(data) { return writeTextDisplay("name",data.name,200,"left","codeSeq",data.codeSeq);},
-		function(data) { return writeTextDisplay("salary",data.salary,100,"left","codeSeq",data.codeSeq);},
+		//function(data) { return writeText("salary",data.salary,9,"right",data.keySeq);},
+		function(data) { return writeTextDisplay("salary",data.salary,100,"center","codeSeq",data.codeSeq);},
 		function(data) { return writeTextYearWork("yearWork",data.yearWork,4,"center",data.keySeq);},
 		function(data) { return writeSelectMonth("periodWork",data.periodWork,data.keySeq);},
 		function(data) { return writeText("totalHour",data.totalHour,9,"right",data.keySeq);},
@@ -862,6 +863,8 @@
 	{
 		$("dataLength").value = data.length;
 		countData();
+
+
 		
 		if(data.length > 0){
 			DWRUtil.removeAllRows("dataTable");
@@ -927,6 +930,7 @@
 			var keySeq 		= frm.elements["keySeq"];
 			var empCode 	= frm.elements["empCode"];
 			var name		= frm.elements["name"];
+			var salary      = frm.elements["salary"];
 			var codeSeq 	= frm.elements["codeSeq"];
 			var flagPr 		= frm.elements["flagPr"];
 			var yearWork 	= frm.elements["yearWork"];
@@ -989,7 +993,13 @@
 						else{
 							rwHealth.name  = null;
 						}
-						
+						if (salary[i].value != ''){
+							rwHealth.salary  = parseInt(salary[i].value);
+						}
+						else{
+							rwHealth.salary  = null;
+						}
+												
 			
 						if (totalHour[i].value !=''){
 							rwHealth.totalHour  = parseInt(totalHour[i].value);
@@ -1625,7 +1635,7 @@
 <table width="100%">
 	<tr>
 		<td class="font-head">
-			[ CTWPAYMT006 ] ∫—π∑÷°‡ß‘π∫”√ÿß ÿ¢¿“æ
+			[ CTWPAYMT006 ] ∫—π∑÷°‡ß‘π∫”√ÿß ÿ¢¿“æ ≈Ÿ°®È“ß
 		</td>
 	</tr>
 </table>

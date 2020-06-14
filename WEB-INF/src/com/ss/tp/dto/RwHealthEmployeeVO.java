@@ -10,6 +10,7 @@ public class RwHealthEmployeeVO implements Serializable {
 	private Double periodPr;
 	private String empCode;
 	private String name;
+	private Integer salary;
 
 	private Double yearWork;
 	private Double periodWork;
@@ -46,7 +47,7 @@ public class RwHealthEmployeeVO implements Serializable {
 	}
 
 	public RwHealthEmployeeVO(Long seq, String flag, String by, Date date,
-			String code, String pr, Long seq2, String code2, Double pr2,
+			String code,Integer salary, String pr, Long seq2, String code2, Double pr2,
 			Double work, Double data, Double amt, Double hour, String by2,
 			Date date2, Double pr3, Double work2,String appF) {
 
@@ -56,6 +57,7 @@ public class RwHealthEmployeeVO implements Serializable {
 		this.creBy = by;
 		this.creDate = date;
 		this.empCode = code;
+		this.salary = salary;
 		this.name = name;
 		this.flagPr = pr;
 		this.keySeq = seq2;
@@ -324,6 +326,14 @@ public class RwHealthEmployeeVO implements Serializable {
 
 	public void setApproveFlag(String approveFlag) {
 		this.approveFlag = approveFlag;
+	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
 	}
 	
 	
