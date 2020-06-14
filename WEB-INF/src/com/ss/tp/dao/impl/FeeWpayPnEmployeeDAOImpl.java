@@ -867,6 +867,7 @@ public class FeeWpayPnEmployeeDAOImpl extends HibernateDaoSupport implements
 		hql.append(" pnEmp.refDbPreSuff.prefixName, ");
 		hql.append(" pnEmp.firstName, ");
 		hql.append(" pnEmp.lastName, ");
+		hql.append(" pnEmp.salary, ");
 		//hql.append(" pnPos.positionShort, ");
 		hql.append(" pnOrg.orgCode, ");
 		hql.append(" pnOrg.divShort || ' ' || pnOrg.areaDesc || ' ' || pnOrg.secDesc || ' ' || pnOrg.workDesc , ");
@@ -923,13 +924,15 @@ public class FeeWpayPnEmployeeDAOImpl extends HibernateDaoSupport implements
 			String prefixName = (String) r[1];
 			String firstName = (String) r[2];
 			String lastName = (String) r[3];
+			Integer salary = (Integer) r[4];
 			//String positionShort = (String) r[4];
-			String orgCode = (String) r[4];
-			String orgDesc = (String) r[5];
-			Double codeSeqWork = (Double) r[6];
+			String orgCode = (String) r[5];
+			String orgDesc = (String) r[6];
+			Double codeSeqWork = (Double) r[7];
 
 			ret.setEmpCode(empcode);
 			ret.setName(prefixName + " " + firstName + " " + lastName);
+			ret.setSalary(salary);
 			//ret.setPositionShort(positionShort);
 			ret.setOrgCode(orgCode);
 			ret.setOrgDesc(orgDesc);

@@ -6,6 +6,7 @@ public class FeeWpayPayRollEmployeeVO implements Serializable {
 	private String empCode;
 	private String name;
 	private String positionShort;
+	private Integer salary;
 	private String orgCode;
 	private String orgDesc;
 	private Double codeSeqWork;
@@ -42,12 +43,13 @@ public class FeeWpayPayRollEmployeeVO implements Serializable {
 
 	}
 
-	public FeeWpayPayRollEmployeeVO(String empCode, String name, String positionShort,
+	public FeeWpayPayRollEmployeeVO(String empCode, String name, String positionShort,Integer salary,
 			String orgCode, String orgDesc, Double codeSeqWork,
 			String flagWork, String otType, String refNo) {
 		this.empCode = empCode;
 		this.name = name;
 		this.positionShort = positionShort;
+		this.salary = salary;
 		this.orgCode = orgCode;
 		this.orgDesc = orgDesc;
 		this.codeSeqWork = codeSeqWork;
@@ -115,5 +117,14 @@ public class FeeWpayPayRollEmployeeVO implements Serializable {
 	public String getFlagWork() {
 		return flagWork;
 	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+
 
 }
